@@ -1,7 +1,3 @@
-Ciao edo a me sono venute due idee per ora.
-Per ognuna però devo capire se è possibile avere accesso a dei dati per poterli importare in un Database Relazionale.
-Questo mi aiuterebbe per poter effettuare delle analisi.
-
 Idea 1:
 Dato il db di una commessa potrei analizzare i dati e trovare qualche informazione interessante, per esempio:
 - lista missioni:
