@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GraphFlow - Commessa</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body {
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      height: 100%;   
+    }
+
+    #container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100%; 
+      margin: 20px 80px;
+    }
+
+    .spinner-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+    }
+
+    .grafico-container {
+      width: 100%;
+      margin-top: 40px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/commesse">GraphFlow</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="#"></a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Cerca Commessa" />
+          <button class="btn btn-outline-success disabled" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  
+  <div id="container">
+    <div class="spinner-container" id="spinner">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    async function fetchGrafico(commessaId, categoria, graficoContainer) {
+      try {
+        const response = await fetch(`/api/commessa/${encodeURIComponent(commessaId)}/grafico?categoria=${categoria}`);
+        if (response.ok) {
+          const iframeHtml = await response.text();
+          graficoContainer.innerHTML = iframeHtml;
+        } else {
+          graficoContainer.innerHTML = `
+            <div class="alert alert-warning mt-3" role="alert">
+              Grafico non disponibile per questa categoria.
+            </div>`;
+        }
+      } catch (error) {
+        graficoContainer.innerHTML = `
+          <div class="alert alert-danger mt-3" role="alert">
+            Errore nel caricamento del grafico.
+          </div>`;
+      }
+    }
+  
+    async function fetchCommessa() {
+      const id = window.location.pathname.split("/").pop();
+      const container = document.getElementById("container");
+      const spinner = document.getElementById("spinner");
+  
+      try {
+        const response = await fetch('http://localhost:8000/api/commessa/' + id);
+        if (!response.ok) throw new Error("Errore nel recupero dati");
+  
+        const commessa = await response.json();
+        spinner.style.display = "none";
+
+        const avatar = document.createElement("img");
+        avatar.src = "/static/img/commesse.jpg"; 
+        avatar.alt = "Avatar Commessa";
+        avatar.className = "rounded-circle mb-3";
+        avatar.style.width = "80px";
+        avatar.style.height = "80px";
+        avatar.style.objectFit = "cover";
+  
+        const title = document.createElement("h5");
+        title.className = "text-center";
+        title.textContent = `Commessa ${commessa.ID_Commessa}`;
+  
+        const nome = document.createElement("p");
+        nome.className = "text-center text-muted";
+        nome.textContent = commessa.Nome;
+  
+        
+  
+        const researchContainer = document.createElement("div");
+        researchContainer.className = "w-100 row g-2";
+  
+        const selectCol = document.createElement("div");
+        selectCol.className = "col-md-10";
+  
+        const select = document.createElement("select");
+        select.className = "form-select";
+        select.innerHTML = `
+          <option selected value="micromissioni">Micromissioni</option>
+          <option value="allarmi">Allarmi</option>
+        `;
+        selectCol.appendChild(select);
+  
+        const buttonCol = document.createElement("div");
+        buttonCol.className = "col-2";
+  
+        const loadNewData = document.createElement("button");
+        loadNewData.className = "btn btn-primary w-100";
+        loadNewData.textContent = "Carica altri dati da un CSV";
+        loadNewData.addEventListener("click", () => {
+          window.location.href = `http://localhost:8000/commessa/${id}/${select.value}/upload-csv`;
+        });
+        buttonCol.appendChild(loadNewData);
+  
+        researchContainer.appendChild(selectCol);
+        researchContainer.appendChild(buttonCol);
+  
+        const graficoContainer = document.createElement("div");
+        graficoContainer.className = "grafico-container";
+  
+        // Carica la prima dashboard
+        await fetchGrafico(id, select.value, graficoContainer);
+  
+        // Cambia grafico al cambio di select
+        select.addEventListener("change", () => {
+          fetchGrafico(id, select.value, graficoContainer);
+        });
+  
+        container.appendChild(avatar);
+        container.appendChild(title);
+        container.appendChild(nome);
+        container.appendChild(researchContainer);
+        container.appendChild(graficoContainer);
+      } catch (error) {
+        spinner.style.display = "none";
+        container.innerHTML = `
+          <div class="alert alert-danger text-center w-100" role="alert">
+            Errore nel caricamento della commessa. Riprova più tardi.
+          </div>`;
+      }
+    }
+  
+    window.onload = fetchCommessa;
+  </script>
+    
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,4 +1,7 @@
--- Creazione Tabella Commessa
+AllarmiDROP TABLE Commesse;
+
+
+-- Creazione Tabella Commesse
 CREATE TABLE `Commesse` (
 	`ID_Commessa` INT NOT NULL,
 	`Nome` VARCHAR(200) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
@@ -7,11 +10,37 @@ CREATE TABLE `Commesse` (
 COLLATE='utf8mb4_0900_ai_ci'
 ;
 
-INSERT INTO Commesse(Nome) VALUES ('Orangina'), ('Tonno Callipo');
+
+INSERT INTO Commesse(Nome) VALUES ('Bosal'), ('Orangina'), ('Tonno Callipo');
 
 SELECT * FROM Commesse;
 
 TRUNCATE Commesse;
+
+DESCRIBE Commesse;
+
+
+-- Creazione Tabella Allarmi
+CREATE TABLE `Allarmi` (
+	`ID_Allarme` INT NOT NULL AUTO_INCREMENT, 
+	`ID_Commessa` INT NOT NULL,
+	`Data_Ora` DATETIME NOT NULL,
+	`Tipo` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`Macchina` VARCHAR(200) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`Valore` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`Codice` VARCHAR(60) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`Descrizione` VARCHAR(200) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	PRIMARY KEY (`ID_Allarme`) USING BTREE,
+	INDEX `FK__Commessa` (`ID_Commessa`) USING BTREE,
+	CONSTRAINT `FK_Allarmi_Commessa` FOREIGN KEY (`ID_Commessa`) REFERENCES `Commesse` (`ID_Commessa`) ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+COLLATE='utf8mb4_0900_ai_ci'
+;
+
+
+SELECT * FROM Allarmi;
+
+TRUNCATE Allarmi;
 
 
 -- Creazione Tabella Micromissioni
@@ -49,6 +78,10 @@ CREATE TABLE `MicroMissioni` (
 )
 COLLATE='utf8mb4_0900_ai_ci'
 ;
+
+INSERT INTO Associazioni(`Tipo_Macchina`, `Tipo_Allarme`, `Allarme`) VALUES ('Satellite', 'Warning', '(24) OK quota teorica');
+
+
 
 -- Test Inserimento nella Tabella Micromissioni
 INSERT INTO MicroMissioni (
@@ -162,5 +195,46 @@ HAVING
 	inizio_settimana IS NOT NULL
 ORDER BY 
 	inizio_settimana;
+	
+	
+	
+	
+	
+SELECT DISTINCT 
+	Macchina 
+FROM
+	MicroMissioni
+WHERE 
+	ID_Commessa = 3
+	
+	
+	
+	
+	-- Per lo Shuttle4 per la commessa 2 Tonno Callippo
+select 
+    a.Tipo,
+    a.Codice,
+    a.Descrizione,
+    m.Risultato,
+    a.Data_Ora,
+    m.Data_Ora_Rx
+from    
+    Allarmi a
+inner join
+    MicroMissioni m
+    on m.ID_Commessa = a.ID_Commessa
+    AND TIMESTAMP(a.Data_Ora) = TIMESTAMP(m.Data_Ora_Rx - INTERVAL SECOND(m.Data_Ora_Rx) SECOND)
+where 
+    a.ID_Commessa = 2
+    and a.Valore = 'ON'
+    -- and a.Macchina not in('H1', 'H2')
+    and a.Macchina = 'Satellite1'
+    and m.Macchina not in('Lift1', 'Lift2')
+    and a.Codice != 'DB106.DBX14.0'
+    and m.Risultato not in ('(1) OK', '(21) Ok silent warning', '')
+    
+    
+    
+
 
 	

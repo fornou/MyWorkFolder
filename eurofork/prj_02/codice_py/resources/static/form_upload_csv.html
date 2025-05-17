@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GraphFlow - Carica CSV</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    #container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+      margin-top: 40px;
+    }
+
+    .card {
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    textarea {
+      resize: none;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/commesse">GraphFlow</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="#"></a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 " type="search" placeholder="Cerca Commessa"/>
+          <button class="btn btn-outline-success disabled" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container" id="container">
+    <div class="card p-4 rounded-4">
+      <h2 class="text-center mb-4">Carica un CSV </h2>
+      <p class="text-center mb-4">I dati del CSV verranno formattati secondo un algoritmo per poter essere in conseguenza inseriti nel Database</p>
+
+      <form id="csvForm">
+
+        <div class="mb-3">
+          <label for="commessa" class="form-label">Nome commessa</label>
+          <input type="text" class="form-control" id="commessa">
+        </div>
+
+        <div class="mb-3">
+          <label for="categoria" class="form-label">Categoria</label>
+          <input class="form-control" id="categoria"></input>
+        </div>
+
+        <div class="mb-4">
+          <label for="file" class="form-label">File</label>
+          <input type="file" class="form-control" id="file">
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-4">
+            <i class="fa-solid fa-arrow-up-from-bracket me-2"></i>Carica Csv
+          </button>
+        </div>
+      </form>
+
+      <div id="message" class="mt-4 text-center"></div>
+    </div>
+  </div>
+
+  <script>
+    const pathSegments = window.location.pathname.split('/').filter(Boolean);
+    const commessaValue = pathSegments[1];
+    const categoriaValue = pathSegments[2];
+    const categoriaFormatted = categoriaValue[0].toUpperCase() + categoriaValue.slice(1);
+
+    const commessaInput = document.getElementById('commessa');
+    const categoriaInput = document.getElementById('categoria');
+    commessaInput.readOnly = true;    
+    categoriaInput.readOnly = true;
+
+    document.getElementById('categoria').value = categoriaFormatted;
+
+    fetch('http://localhost:8000/api/commessa/' + commessaValue)
+    .then(
+        response => {
+            if (!response.ok) throw new Error("Errore nella richiesta");
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('commessa').value = data.Nome;
+            })
+            .catch(error => {
+                console.error("Errore nel fetch della commessa:", error);
+                document.getElementById('commessa').value = "Errore";
+            }
+    );
+
+
+    document.getElementById('csvForm').addEventListener('submit', async function(event) {
+  event.preventDefault();
+
+  const commessa = commessaValue;
+  const categoria = categoriaValue;
+  const fileInput = document.getElementById('file');
+  const file = fileInput.files[0];
+
+  if (!file) {
+    alert("Seleziona un file prima di continuare.");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append('file', file);
+
+  try {
+    const response = await fetch(`http://localhost:8000/api/commessa/${encodeURIComponent(commessa)}/${encodeURIComponent(categoria)}/upload`, {
+      method: 'POST',
+      body: formData
+    });
+
+    const messageDiv = document.getElementById('message');
+
+    if (response.ok) {
+      // Scarica direttamente il file restituito
+      const blob = await response.blob();
+      const downloadUrl = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = downloadUrl;
+      a.download = `formattato_${file.name}`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      messageDiv.innerHTML = `
+        <div class="alert alert-success alert-dismissible fade show d-flex align-items-center" role="alert">
+          <i class="fas fa-check-circle me-2"></i>
+          <div>File caricato e formattato con successo!</div>
+          <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      `;
+    } else {
+      const data = await response.json();
+      messageDiv.innerHTML = `
+        <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
+          <i class="fas fa-exclamation-triangle me-2"></i>
+          <div>Errore: ${data.detail}</div>
+          <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      `;
+    }
+  } catch (error) {
+    console.error("Errore durante l'upload:", error);
+  }
+});
+
+ 
+    </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

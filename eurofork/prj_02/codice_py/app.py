@@ -1,63 +1,66 @@
-from fastapi import FastAPI, Form, File, UploadFile
-from formattatore_csv import formattatore_csv
-from fastapi.responses import FileResponse, HTMLResponse  # Aggiungi HTMLResponse qui
+from fastapi import FastAPI
+from controller.commessa_controller import CommessaController
+from controller.utente_controller import UtenteController
+from controller.mvc import MVCController
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-import shutil
-import os
+from fastapi.openapi.utils import get_openapi
+from database.database import init_db
+from database.settings import settings
+from controller.auth_controller import AuthController
 
-#Cartella dove salvo i file caricati e formattati
-UPLOAD_FOLDER = "uploads"
 
-app = FastAPI()
+def create_app():
+    app = FastAPI()
 
-# Dice all'app dove trovare i contenuti (HTML, CSS, JS)
-app.mount("/static", StaticFiles(directory="static"), name="static")
+    commessa_controller = CommessaController()
+    utente_controller = UtenteController()
+    mvc_controller = MVCController()
+    auth_controller = AuthController()
 
-# CORS regola chi puo' accedere e a che cosa
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Richieste da tutti i domini
-    allow_credentials=True,
-    allow_methods=["*"],  # Richieste di tutti i metodi HTTP
-    allow_headers=["*"],  # Permetti tutti gli header presenti nelle richieste
-)
+    app.include_router(commessa_controller.router)
+    app.include_router(utente_controller.router)
+    app.include_router(auth_controller.router)
+    app.include_router(mvc_controller.router)
 
-#Pagina di home che mi permette il caricamento dei file
-@app.get("/", response_class=HTMLResponse)
-async def serve_home():
-    with open("static/index.html", "r", encoding="utf-8") as file:
-        return HTMLResponse(content=file.read())
+    app.mount("/static", StaticFiles(directory="resources/static"), name="static")
 
-@app.post("/upload/")
-async def upload_file(
-        file: UploadFile = File(...),
-        commessa: str = Form(...)
-    ):
-    # Cartella Uploads dove salvo i file .csv formattati
-    os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-    #Percorso dove salvare il file
-    temp_file_path = os.path.join(UPLOAD_FOLDER, file.filename)
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],  
+        allow_credentials=True,
+        allow_methods=["*"],  # consente tutti i metodi
+        allow_headers=["*"],  # consente tutti gli header
+    )
 
-    # Salva temporaneamente il file caricato in percorso
-    with open(temp_file_path, "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
+    if settings.INIT_DB_AT_STARTUP:
+        init_db()
+        print("Database inizializzato")
 
-    # Crea il formattatore_csv passando il percorso del file temporaneo, i campi data e il numero di commessa
-    formatter = formattatore_csv(temp_file_path, ['Data\\Ora TX', 'Data\\Ora RX', 'Data\\Ora inizio'], commessa)
+    def custom_openapi():
+        if app.openapi_schema:
+            return app.openapi_schema
+        openapi_schema = get_openapi(
+            title="La tua API",
+            version="1.0.0",
+            description="API con autenticazione JWT",
+            routes=app.routes,
+        )
+        openapi_schema["components"]["securitySchemes"] = {
+            "BearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT",
+            }
+        }
+        for path in openapi_schema["paths"].values():
+            for operation in path.values():
+                operation["security"] = [{"BearerAuth": []}]
+        app.openapi_schema = openapi_schema
+        return app.openapi_schema
+    
+    app.openapi = custom_openapi
 
-    #Converte le date in datetime accettate dal db
-    formatter.converti_date()
-    #Aggiunge campo id_commessa
-    formatter.aggiungi_campo()
-    #Fa scaricare il file formattato
-    formatter.esporta_file()
+    return app
 
-    # Ottieni il percorso del file formattato
-    formatted_file_path = formatter.get_url_destinazione()
-
-    # Rimuovi il file temporaneo
-    os.remove(temp_file_path)
-
-    # Restituisci il file formattato permettendo lo scaricamento
-    return FileResponse(formatted_file_path, media_type='application/octet-stream', filename=os.path.basename(formatted_file_path))
+app = create_app()
