@@ -1,0 +1,48 @@
+Ciao mi ha contattato Garola, mi servono i dati di Micromissioni e Allarmi della Commessa di Orangina dell'ultima settimana.
+Il suo messaggio:
+"
+Ciao mattia, ho bisogno di avere un report aggiornato di orangina dell ultima settimana
+Riesci a caricarlo sulla versione aggiornata entro stasera?
+Chiedi il csv a herick please
+"
+
+Qua sotto specifico la struttura e quindi i campi necessari per le mie analisi.
+
+Struttura file micromissioni.csv:
+Data\Ora TX
+Macchina
+Tipo	Risultati	
+Data\Ora RX	
+Quota	
+# PLC	
+# UDC	
+Cella	
+Destinazione	
+Inizio	
+Fine	
+Quota inizio	
+Data\Ora inizio	
+Distanza	
+Durata	
+Direzione	
+Stato logico	
+Indice	
+Num. missioni	
+Note	
+Livello Batteria Tx	
+Livello Batteria Rx	
+Peso UDC
+
+Struttura file allarmi.csv:
+Data\Ora	
+Tipologia	
+Periferica	
+Valore	
+Codice	
+Descrizione
+
+Se la tipologia degli allarmi risulta vuota, mi servirebbe capire a quali codici corrispondo le tipologie.
+Per esempio so che in Tonno Calippo i DB106 riguardano gli allarmi, i DB116 i warning e i DB126 i silent.
+
+E per i tipi mi interressano tutti quanti ovvero Warning, Silent Waring e Allarm.
+

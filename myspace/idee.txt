@@ -1,0 +1,19 @@
+Idea 1:
+Dato il db di una commessa potrei analizzare i dati e trovare qualche informazione interessante, per esempio:
+- lista missioni:
+	- statistica di missioni che vanno male e perché
+	- suggerimenti a utenti in base a determinati eventi:
+		-se si nota che prima di un mal funzionamento spesso succede sempre lo stesso evento si può consigliare all'utente di agire in altro modo per prevenirlo
+- stati batterie:
+	- quali batterie sono più efficienti, se si modifica un particolare potrebbe migliorare la loro prestazione in termini di durata
+- velocità, missioni orarie e giornaliere --> quali fasce orarie sono più produttive e perché
+- previsione manutenzione, se so statisticamente la durata dell'efficienza del pezzo posso predirre quando dovrò andare a effettuare la manutenzione
+
+Idea 2:
+-Analisi sulla produzione, capire se il processo è ottimizzato o si può migliorare qualcosa:
+	- ore di lavoro dipendenti, numero di dipendenti, aree di lavoro
+-Creazione dashboard/ cruscotto interattivo x ogni capo reparto per vedere i processi lavorativi a che punto sono
+
+Idea 3
+comparazione e storico dei calcoli per ottenimento flussi pallet del cliente. filtro in base a parametri necessari ed individuo eventuali calcoli già fatti
+ 

@@ -48,3 +48,55 @@ Stavo pensando, metto il telefono in carica o no. Se lo metto sarà carico e pot
 Cazzo ci son caduto, ma sta volta un piano. Lo metto in carica così che abbia la tentazione ma non cederò a un fottuto strumento di merda. Io decido per me stesso, non voi.
 
 Se pensate che verrò in tv o ai podcast a parlare delle mie idee e di questo testo vi sbagliate di grosso, che vi baleni nella testa questa idea o no me ne sbatto altamente. Non strumentalizzerete il mio prodotto, non lo meritate.
+
+
+
+adesso volevo veramente disinstallare tutto, tanto se ci rifletto bene non mi serve molto
+cioè se ci pensi, e pensi cosa ti serve del tuo telefono, dovremmo tutti imparare a distinguere 
+servizi di qualità e servizi spazzatura, un po' come il cibo. lcune cose ti fanno bene altre no.
+Osserva tutte quelle app sul tuo telefono e dimmi quante servono realmente e quante al nulla più totale o rasenti allo 0
+Serve per whatsapp, ma poi guardi bene whatsapp e capisci che il 20% dei messaggi che scriviamo lì sopra sono veramente utili
+Serve la fotocamera per le foto ma se ci rifletti serve quando vai in giro 
+Serve per telefonare ed è assurdo pensare che lo scopo principale di un telefono mi viene in mente come ultimo punto. Già grazie che ci ho pensato, mi dico. Potevo essere benissimo una persona che non ci avrebbe pensato o come primi 10 motivi mi avesse espresso 10 inutili app social o perdi tempo dove l'unico beneficio si vede nelle tasche di qualcun altro. Se rifletti cosa impari da un social, forse l'1% delle informazioni
+lì sopra sono utili, il resto è intrattenimento scarso. Una volta il tempo per intrattenersi era quasi nullo, ora che ne abbiamo a volontà lo usiamo più male che bene.
+Come si fa ad avere fiducia in una società di questo tipo. I ragazzi girano la testa per un rombo fatto da una macchina e il più delle volte è perchè lo desiderano. Ma esattamente cosa desideriamo. È un continuo pensare a volere altro, correre dietro a cose di cui non abbiamo bisogno. La cosa che mi rattrista al quanto è il fatto che tutti in torno a me sono così, forse vorrei esserlo anche io. Sarebbe molto meno pesante la vita se desiderassi veramente qualcosa di più. Forse se come tutte le persone inseguissi il denaro, le macchine, i vestiti costosi, i ristoranti stellati... forse e dico forse sarei molto più sereno, accecato da bisogni di cui non bisogno.
+
+a me ora per il cronometro
+
+Tornando al discorso del disinstallare tutto, la cosa importante secondo me, è avere la tentazione e non cadere
+ormai viene stra istintivo accendere il telefono per niente e aprire instagram, tiktok o qualsiasi altra app
+io dico vaffanculo, crepasse il sitema e pure quel infame bastardo che la creato e sta monetizzando sulle nostre vite.
+
+Appunto se vi chiedete perchè non vi risponda più a reel o ste cose è perche da oggi cercherò di combattere questa dipendenza.
+
+Perchè effettivamente desideriamo le cose? per status sociale suppongo?
+Siamo talmente deboli da voler qualcosa per impressionare qualcun altro
+io adesso mi comprerei delle polo per il lavoro ma poi penso, perchè? cosa cazzo me ne faccio? 
+ho già delle magliette. cioè se pensi realmente a cosa stai desiderando capisci che non ce n'è veramente il bisogno
+
+questa cosa ogni volta che ci penso mi distrugge la testa
+
+però poi guadagni dei soldi e puoi spenderli. ma di che cosa abbiamo realmente bisogno
+io onestamente non saprei per cosa spenderli se non per una cosa forse, un viaggetto ogni tanto alla scoperta di nuovi paesi e nuovi paesaggi
+e quindi sorge spontanea la domanda
+perchè lavori? per due motivi, per comprare cose indispensabili tipo il cibo e i vestiti che va beh durano anni. e due per pagare tasse che non fanno che arricchire altre persone.
+i ricchi sono persone banali, superficiali ma i poveri che si comportano da ricchi sono ancora peggio. chi vuoi impressionare
+la vita ha un unico significato imparare a collaborare e rispettare gli altri ma in un mondo in cui questi principi non vengono rispettati ti trovi solo e non capisci per cosa stai vivendo esattamente
+io vorrei essere egoista e intossicarmi di stronzate per non pensare alla vita ma alla fine cado sempre qui, a parlare con me stesso per trovare una soluzione. Non so se sono io che non mi apro abbastanza, non mi apro con le persone giuste, o se questo mondo non ha speranze. forse sto vivendo una vita troppo monotona che mi sta distruggendo la mente. io quando succedono delle calamità naturali, sorrido. non so perchè, forse vorrei solo che ci trovassimo tutti a 0, allo stesso punto di partenza. senza soldi senza niente. o forse no, vorrei solo che il mondo facesse lui la pulizia che non stiamo facendo noi. forse vorrei soltanto che ci spazzasse tutti via. non c'è mai stata speranza e mai ci sarà
+
+lo scopo della vita cessa di esistere, siamo in balia degli eventi e lo siamo sempre stati
+non penso che mi ucciderei mai perchè so che in fondo il problema non sono io
+ma forse le circostanza mi porterebbero a farlo. non c'è una cosa giusta da fare, è impossibile cambiare il mondo
+la gente ha bisogno di vedere cosa vuol dire soffrire per capire
+
+mi trovo impallato davanti a uno schermo
+e mi chiedo qual è lo scopoo effettivo delle cose
+non c'è e ora ne ho coscienza
+
+
+Direste mai a un uccellino smetti di cantare?
+Fermereste la sua felicità e il suo modo di esprimerla per egoismo o rabbia momentanea?
+Cavolo lui è felice e noi no, dobbiamo per forza far in modo che soffra quanto noi, giusto?
+Ma ci riflettete mai che magari quel uccellino, i giorni, precedenti al suo fischiettare tra la gente spensierato, erano bui quanto i vostri e forse pure peggiori.
+Voi avete portato quell'uccellino che era in un momento felice in un limbo di tristezza che pensava di aver superato, era una giornata felice e lui stava bene, avete una grossa responsabilità.
+ed è per questo che io vi consiglio cari ascoltatori, statevene da soli, siate un uccellino solitario senza problemi e state alla larga da quegli uccellacci del malaugurio.

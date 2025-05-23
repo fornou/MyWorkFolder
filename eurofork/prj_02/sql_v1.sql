@@ -235,6 +235,35 @@ where
     
     
     
+    
+   DELETE  FROM Allarmi WHERE ID_Commessa = 3;
+   
+   
+   
+   INSERT INTO Associazioni (Tipo_Macchina, Tipo_Allarme, Allarme) VALUES
+('7N0', 'Alarm', '(200) AlarmHW'),
+('7N0', 'Alarm', '(215) Automatico manuale'),
+('7S0', 'Alarm', '(200) AlarmHW'),
+('7S0', 'Alarm', '(215) Automatico manuale'),
+('7N0', 'Silent Warning', '(21) OK silent warning'),
+('7S0', 'Silent Warning', '(21) OK silent warning'),
+('7S0', 'Warning', '(122) Errore warning'),
+('7N0', 'Warning', '(122) Errore warning'),
+('7S0', 'Warning', '(127) Pos. non gestibile'),
+('7S0', 'Warning', '(24) OK quota teorica');
+
+    
+    
+    
+SELECT COUNT(*)
+FROM MicroMissioni
+WHERE ID_Commessa = 3
+  AND Risultato LIKE '%OK%'
+  AND Tipo LIKE '%Spostamento%' 
+  AND DATE(Data_Ora_Inizio) = '2025-05-09'
+  AND Macchina LIKE '7N0101';
+
+    
 
 
 	
