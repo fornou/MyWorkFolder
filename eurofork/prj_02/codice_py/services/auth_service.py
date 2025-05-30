@@ -13,16 +13,18 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/signin") # recupera il toke
 
 #Torna utente se il suo token esiste e non è scaduto
 def get_current_user(
-        token: str = Security(oauth2_scheme),
-        db: Session = Depends(get_db)
-    ):
+    token: str = Security(oauth2_scheme),
+    db: Session = Depends(get_db)
+):
     token_service = TokenService(db)
     utente = token_service.token_validation(token)
     if not utente:
-        with open("resources/static/404.html", "r", encoding="utf-8") as file:
-            return HTMLResponse(content=file.read())
-        #raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token non valido o scaduto")
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Token non valido o utente non autenticato"
+        )
     return utente
+
 
 class AuthService:
     def __init__(self, db: Session):
@@ -36,7 +38,6 @@ class AuthService:
         utente = self.utente_dao.get_by_email(email)
         if not utente or not verify_password(password, utente.Password):
             return None
-        self.token_dao
         return utente
         
 

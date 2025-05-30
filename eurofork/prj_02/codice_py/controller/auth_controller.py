@@ -6,20 +6,22 @@ from database.database import get_db
 from services.auth_service import get_current_user
 from schemas.auth import CreateUserRequest
 from fastapi import APIRouter, HTTPException, status, Depends
-from fastapi.security import  OAuth2PasswordRequestForm, OAuth2PasswordBearer
-from fastapi import Security
+from fastapi.security import  OAuth2PasswordRequestForm
+import logging
 
+from services.utente_service import UtenteService
+logger = logging.getLogger(__name__)
 
 
 class AuthController:
     def __init__(self):
-        self.router = APIRouter(prefix="/auth", tags=["Auth"])
+        self.router = APIRouter(prefix="/api/auth", tags=["Auth"])
         self._add_routes()
 
     def _add_routes(self):
         self.router.post("/signup", status_code=status.HTTP_201_CREATED)(self.create_user)
         self.router.post("/signin")(self.login_user)
-        self.router.post("/logout/{user_id}")(self.logout_user)
+        self.router.post("/logout")(self.logout_user)
         # self.router.get("/area-protetta")(self.protected_route)
 
     async def create_user(self, create_user_request: CreateUserRequest, db: Session = Depends(get_db)):
@@ -39,16 +41,26 @@ class AuthController:
     async def login_user(self, form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
         auth_service = AuthService(db)
         token_service = TokenService(db)
+        utente_service = UtenteService(db)
 
         user = auth_service.authenticate_user(form_data.username, form_data.password)
-        if not user:
+        username = utente_service.get_utente_by_email(form_data.username)
+        
+        if not username:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="Invalid email or password",
-                headers={"WWW-Authenticate": "Bearer"},
+                detail="Email non registrata",
+                headers={"WWW-Authenticate": "Bearer"}
+            )
+        elif not user:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Password errata",
+                headers={"WWW-Authenticate": "Bearer"}
             )
 
-        token_service.update_token(user.ID_Utente, False, False)
+
+        token_service.update_token(user.ID_Utente, True, True)
         token = token_service.create(user)
         if not token:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Creazione token fallita")
@@ -62,19 +74,11 @@ class AuthController:
             }
         }
 
-    async def logout_user(self, user_id: int, db: Session = Depends(get_db), current_user: Utente = Depends(get_current_user)):
-        if current_user.ID_Utente != user_id:
-            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Non autorizzato")
-        token_service = TokenService(db)
-        token_service.update_token(user_id, True, True)
-        return {"message": "Logout effettuato"}
-
-
-    # oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/signin") # recupera il token dall'header (Authorization: Bearer <token>)
-
-    # async def protected_route(self, token: str = Security(oauth2_scheme), db: Session = Depends(get_db)):
-    #     token_service = TokenService(db)
-    #     utente = token_service.token_validation(token)
-    #     if not utente:
-    #         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token non valido o scaduto")
-    #     return {"message": "Accesso autorizzato"}
+    async def logout_user(self,db: Session = Depends(get_db), current_user: Utente = Depends(get_current_user)):
+        id_utente = int(current_user.ID_Utente)
+        try:
+            token_service = TokenService(db)
+            token_service.update_token(id_utente, True, True)
+            return {"message": "Logout effettuato"}
+        except:
+            return {"message": "Logout fallito"}

@@ -37,8 +37,10 @@ class TokenDAO:
     #Aggiorna i token di uno specifico utente e non scaduti o revocati
     def update_token(self, user_id: int, espirato: bool, revocato: bool):
         self.db.query(Token).filter(
-            Token.user_id == user_id,
-            Token.espirato == False,
-            Token.revocato == False
-        ).update({Token.revocato: revocato, Token.espirato: espirato}, synchronize_session=False)
+            Token.user_id == user_id
+        ).update(
+            {Token.revocato: revocato, Token.espirato: espirato},
+            synchronize_session=False
+        )
         self.db.commit()
+

@@ -8,6 +8,10 @@ from fastapi.openapi.utils import get_openapi
 from database.database import init_db
 from database.settings import settings
 from controller.auth_controller import AuthController
+from fastapi import Request
+from fastapi.responses import HTMLResponse
+from fastapi.exceptions import RequestValidationError
+from starlette.exceptions import HTTPException as StarletteHTTPException
 
 
 def create_app():
@@ -27,11 +31,25 @@ def create_app():
 
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=["*"],  
+        allow_origins=["http://127.0.0.1:8000", "http://localhost:8000"],  
         allow_credentials=True,
-        allow_methods=["*"],  # consente tutti i metodi
-        allow_headers=["*"],  # consente tutti gli header
+        allow_methods=["*"],
+        allow_headers=["*"],
     )
+
+    @app.exception_handler(StarletteHTTPException)
+    async def http_exception_handler(request: Request, exc: StarletteHTTPException):
+        if exc.status_code == 404:
+            try:
+                with open("resources/static/404.html", "r", encoding="utf-8") as f:
+                    content = f.read()
+            except FileNotFoundError:
+                content = "<h1>404 Not Found</h1><p>La pagina richiesta non esiste.</p>"
+            return HTMLResponse(content=content, status_code=404)
+        else:
+            # fallback per altre eccezioni HTTP
+            return HTMLResponse(content=str(exc.detail), status_code=exc.status_code)
+
 
     if settings.INIT_DB_AT_STARTUP:
         init_db()

@@ -41,10 +41,11 @@ class TokenService:
             raise HTTPException(status_code=401, detail="Token inesistente")
 
         if datetime.now() > token_record.expires_at:
-            self.dao.update_espirato(token, True)
-            raise HTTPException(status_code=401, detail="Token scaduto")
+            self.dao.update_token(token_record.user_id, True, True)
+            raise HTTPException(status_code=401, detail="Token espirato")
 
         if token_record.revocato:
+            self.dao.update_token(token_record.user_id, True, True)
             raise HTTPException(status_code=401, detail="Token revocato")
 
         return token_record.utente

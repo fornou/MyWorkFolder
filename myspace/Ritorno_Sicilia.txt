@@ -1,0 +1,97 @@
+# ✈️ Ritorno dalla Sicilia il 02/07/25
+
+---
+
+## 🟢 Piano principale
+
+---
+
+### 🚍 Primo Pezzo con **GiuntaBus srl**
+
+- **Partenza**
+  - **Dove:** Villafranca Tirrena (Luogo)  
+  - **Quando:** 7:55
+
+- **Arrivo**
+  - **Dove:** Messina (Luogo)  
+  - **Quando:** 8:20
+
+---
+
+### 🚍 Secondo Pezzo con **Sais autolinee** – *8,40€*
+
+- **Partenza**
+  - **Dove:** Messina (Stazione - T.Bus Piazza della Repubblica)  
+  - **Quando:** 8:30
+
+- **Arrivo**
+  - **Dove:** Catania (Aeroporto - Terminal Partenze)  
+  - **Quando:** 9:50 / 10:00
+
+---
+
+### 🛫 Terzo Pezzo con compagnia aerea – *35€*
+
+- **Partenza**
+  - **Dove:** Catania Aeroporto  
+  - **Quando:** 12:45
+
+- **Arrivo**
+  - **Dove:** Torino  
+  - **Quando:** 14:50
+
+---
+
+### ✅ Totale
+
+- **Attesa in aeroporto:** 2h45min / 2h55min  
+- **Durata totale:** 7h 5min  
+- **Spesa totale:** 43,40€ + *costo Primo Pezzo*
+
+---
+
+## 🟡 Piano di riserva
+
+---
+
+### 🚍 Primo Pezzo con **Franco srl**
+
+- **Partenza**
+  - **Dove:** Villafranca Tirrena (Casa)  
+  - **Quando:** 13:50
+
+- **Arrivo**
+  - **Dove:** Messina (Stazione - T.Bus Piazza della Repubblica)  
+  - **Quando:** 14:20
+
+---
+
+### 🚍 Secondo Pezzo con **Sais autolinee** – *8,40€*
+
+- **Partenza**
+  - **Dove:** Messina (Stazione - T.Bus Piazza della Repubblica)  
+  - **Quando:** 14:30
+
+- **Arrivo**
+  - **Dove:** Catania (Aeroporto - Terminal Partenze)  
+  - **Quando:** 15:55 / 16:00
+
+---
+
+### 🛫 Terzo Pezzo con compagnia aerea – *67€*
+
+- **Partenza**
+  - **Dove:** Catania Aeroporto  
+  - **Quando:** 18:45
+
+- **Arrivo**
+  - **Dove:** Torino  
+  - **Quando:** 20:45
+
+---
+
+### ✅ Totale
+
+- **Attesa in aeroporto:** 2h45min / 2h50min  
+- **Durata totale:** 6h 55min  
+- **Spesa totale:** 75,40€ + *costo Primo Pezzo*

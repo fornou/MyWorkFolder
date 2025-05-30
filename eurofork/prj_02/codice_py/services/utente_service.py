@@ -13,3 +13,6 @@ class UtenteService:
     
     def get_utente_by_id(self, id: int):
         return self.dao.get_by_id(id)
+    
+    def get_utente_by_email(self, email: str):
+        return self.dao.get_by_email(email)

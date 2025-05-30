@@ -6,6 +6,7 @@
   <title>GraphFlow - Commesse</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="icon" type="image/x-icon" href="/static/img/logo platform.ico"/>
   <style>
     body {
       background-color: #f8f9fa;
@@ -89,31 +90,41 @@
       border-color: #ccc;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-
-
   </style>
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/commesse">GraphFlow</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="/commesse">GraphFlow</a>
+
+    <form class="d-none d-lg-flex ms-auto me-3" role="search">
+      <input class="form-control me-2" id="search-input" type="search" placeholder="Cerca Commessa" />
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+    <div class="dropdown">
+      <button
+        class="btn btn-dark d-flex align-items-center justify-content-center rounded-circle"
+        id="userDropdown"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        style="width: 40px; height: 40px; border: 1px solid rgba(124, 116, 116, 0.507);"
+        title="Account"
+      >
+        <span id="user-initial" class="fw-bold">?</span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="#"></a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search" onsubmit="searchCommessa(event)">
-          <input class="form-control me-2" id="search-input" type="search" placeholder="Cerca Commessa" />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>        
-      </div>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+        <li><span class="dropdown-item-text" id="user-email" style="font-size: 0.9rem;"></span></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><button class="dropdown-item" id="logout-btn" onsubmit="logout(event)">Logout</button></li>
+      </ul>
     </div>
-  </nav>
+    
+  </div>
+</nav>
+
+
 
   <div class="container text-center" id="container">
     <h1 id="page-title" class="text-center">Ecco tutte le commesse presenti nel DB</h1>
@@ -143,189 +154,29 @@
       Aggiungi Commessa
     </button>
   </div>
+  
+  <script type="module">
 
-  <script>
-    function createCards(commesse) {
-      let currentOpenPopup = null;
+    import { isLogged, logout } from '/static/scripts/auth.js';
+    import { getAllCommesse, searchCommessa, createCommessaCards} from '/static/scripts/commesse.js';
 
-      const cont_commesse = document.querySelector('.carousel-inner');
-      const indicators = document.getElementById('carousel-indicators');
-      const carousel = document.getElementById('carouselExampleDark');
-      const spinner = document.getElementById('spinner');
+    window.onload = () => {
 
-      cont_commesse.innerHTML = '';
-      indicators.innerHTML = '';
+      isLogged(getAllCommesse);
 
-      const commessePerSlide = 3;
-      const numeroSlide = Math.ceil(commesse.length / commessePerSlide);
+      document.querySelector('form[role="search"]').addEventListener('submit', (e) => {
+        e.preventDefault();
+        searchCommessa();
+      });
 
-      for (let i = 0; i < numeroSlide; i++) {
-        const slide = document.createElement('div');
-        slide.classList.add('carousel-item');
-        if (i === 0) slide.classList.add('active');
+      document.getElementById('logout-btn').addEventListener('click', (e) => {
+        e.preventDefault();
+        logout();
+      });
 
-        const row = document.createElement('div');
-        row.classList.add('row', 'justify-content-center', 'gap-3', 'mb-4');
+    };
 
-        for (let j = i * commessePerSlide; j < (i + 1) * commessePerSlide && j < commesse.length; j++) {
-          const commessa = commesse[j];
-
-          const col = document.createElement('div');
-          col.classList.add('col-md-3', 'position-relative'); // Serve per posizionare il popup
-
-          const card = document.createElement('div');
-          card.classList.add('card');
-
-          // === TRE PUNTINI + POPUP ===
-          const dotsMenu = document.createElement('div');
-          dotsMenu.classList.add('dots-menu', 'position-absolute', 'top-0', 'end-0', 'p-2');
-          dotsMenu.style.cursor = 'pointer';
-          dotsMenu.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>';
-
-          const popupMenu = document.createElement('div');
-          popupMenu.classList.add('popup-menu', 'bg-white', 'border', 'rounded', 'p-2', 'shadow-sm');
-          popupMenu.style.position = 'absolute';
-          popupMenu.style.top = '0px';
-          popupMenu.style.right = '20px';
-          popupMenu.style.display = 'none';
-          popupMenu.style.zIndex = '1000';
-
-          const select = document.createElement('select');
-          select.classList.add('form-select');
-          select.style.minWidth = '160px';
-          select.style.fontSize = '1rem';
-          select.style.padding = '6px 10px';
-          select.innerHTML = ` 
-            <option selected disabled>Seleziona</option>
-            <option value="modifica">Modifica</option>
-            <option value="elimina">Elimina</option>
-          `;
-
-
-          popupMenu.appendChild(select);
-
-          dotsMenu.appendChild(popupMenu);
-          card.appendChild(dotsMenu); // Fuori dal link
-
-          // === GESTIONE CLICK - MENU ===
-          dotsMenu.addEventListener('click', (e) => {
-            e.stopPropagation();  // Ferma la propagazione dell'evento
-
-            // Chiude il popup precedente se esiste
-            if (currentOpenPopup && currentOpenPopup !== popupMenu) {
-              currentOpenPopup.style.display = 'none';
-            }
-
-            // Toggle visibilità
-            popupMenu.style.display = popupMenu.style.display === 'none' ? 'block' : 'none';
-            currentOpenPopup = popupMenu.style.display === 'block' ? popupMenu : null;
-          });
-
-          // === GESTIONE CLICK - SELEZIONE ===
-          select.addEventListener('click', (e) => {
-            // Evita la chiusura del popupMenu quando si clicca sulla freccetta del select
-            e.stopPropagation();
-          });
-
-          // === GESTIONE SELECT ===
-          select.addEventListener('change', (e) => {
-            const value = e.target.value;
-            if (value === 'elimina') {
-              console.log(`Elimina ${commessa.ID_Commessa}`);
-            } else if (value === 'modifica') {
-              console.log(`Modifica ${commessa.ID_Commessa}`);
-            }
-          });
-
-          // === CARD LINK + CONTENUTO ===
-          const link = document.createElement('a');
-          link.href = `commesse/${commessa.ID_Commessa}`;
-          link.classList.add('text-decoration-none', 'text-dark');
-
-          const img = document.createElement('img');
-          img.src = "/static/img/commesse.jpg";
-          img.className = "card-img-top";
-          img.alt = "foto_standard_commessa";
-
-          const cardBody = document.createElement('div');
-          cardBody.className = "card-body";
-
-          const h5 = document.createElement('h5');
-          h5.classList.add('card-title');
-          h5.textContent = `Commessa ${commessa.ID_Commessa}`;
-
-          const p = document.createElement('p');
-          p.classList.add('card-text');
-          p.textContent = commessa.Nome;
-
-          cardBody.appendChild(h5);
-          cardBody.appendChild(p);
-          link.appendChild(img);
-          link.appendChild(cardBody);
-
-          card.appendChild(link);
-          col.appendChild(card);
-          row.appendChild(col);
-        }
-
-        slide.appendChild(row);
-        cont_commesse.appendChild(slide);
-
-        const indicator = document.createElement('button');
-        indicator.type = "button";
-        indicator.setAttribute('data-bs-target', '#carouselExampleDark');
-        indicator.setAttribute('data-bs-slide-to', i);
-        indicator.setAttribute('aria-label', `Slide ${i + 1}`);
-        if (i === 0) {
-          indicator.classList.add('active');
-          indicator.setAttribute('aria-current', 'true');
-        }
-        indicators.appendChild(indicator);
-      }
-
-      spinner.classList.add("d-none");
-      carousel.classList.remove("d-none");
-    }
-
-
-    async function fetchCommesseAll() {
-      try {
-        const response = await fetch('http://localhost:8000/api/commessa/all');
-        const commesse = await response.json();
-        createCards(commesse);
-
-      } catch (error) {
-        document.getElementById('spinner').innerHTML = `
-          <div class="alert alert-danger w-100" role="alert">
-            Errore nel recupero delle commesse. Controlla il server.
-          </div>`;
-        console.error(error);
-      }
-    }
-
-    async function searchCommessa() {
-      event.preventDefault(); //blocca il submit e quindi non ricarica la pagina
-      try {
-        const title = document.getElementById('search-input').value;
-        if(title == "") return fetchCommesseAll();
-        
-        const response = await fetch('http://localhost:8000/api/commessa/search/' + encodeURIComponent(title));
-        const commesse = await response.json();
-        createCards(commesse);
-        
-
-      } catch (error) {
-        document.getElementById('spinner').innerHTML = `
-          <div class="alert alert-danger w-100" role="alert">
-            Errore nel recupero delle commesse. Controlla il server.
-          </div>`;
-        console.error(error);
-      }
-    }
-
-    window.onload = fetchCommesseAll;
   </script>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
