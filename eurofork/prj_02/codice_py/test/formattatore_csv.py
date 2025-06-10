@@ -12,7 +12,8 @@ class formattatore_csv:
     def __init__(self, url, colonna_data):	
         self.url = self.esiste_file(url)
         self.df = pd.read_csv(url, sep=';', encoding='utf-8', dtype=str)
-        self.colonna_date = colonna_data											                                                                                    			
+        self.colonna_date = colonna_data
+        											                                                                                    			
     def traduci_colonne(self, url):
         df = pd.read_csv(url, sep=';', encoding='utf-8', dtype=str)
         if self.commessa == 3:

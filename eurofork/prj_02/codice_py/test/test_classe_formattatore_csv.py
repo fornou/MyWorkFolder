@@ -1,29 +1,40 @@
-import formattatore_csv as fc
-# C:\Users\mattia.forneron\Desktop\myfolder\MyWorkFolder\eurofork\prj_02\csv_files\Tonno Callipo\file_originali\MissionHistory3.csv
-# C:\Users\mattia.forneron\Desktop\myfolder\MyWorkFolder\eurofork\prj_02\csv_files\Tonno Callipo\file_formattati\AlarmsHistory_elaborato.csv
+import pandas as pd
 
-url = input('Inserisci percorso file .csv:\n')
-colonne_date = ['Data\\Ora TX','Data\\Ora RX','Data\\Ora inizio']
-#colonna_data = ['Data\\Ora']
+def mappa_e_prepara_records(df, mapping, commessa_id, col_data_commessa="ID_Commessa"):
+    records = []
+    for _, row in df.iterrows():
+        record = {}
+        for csv_col, db_col in mapping.items():
+            record[db_col] = row.get(csv_col)
+        record[col_data_commessa] = commessa_id
+        records.append(record)
+    return records
 
-# print("Commesse presenti:\n -1 Bosal \n -2 Tonno Callipo")
-# commessa = input('Di quale commessa sono i dati:\n')
-# tabella = input("In quale tabella vuoi pushare i dati")
+def carica_e_filtra_csv_micromissioni(file_path: str) -> pd.DataFrame:
+    try:
+        df = pd.read_csv(file_path)
+        
+        df.columns = df.columns.str.strip()
 
-f = fc.formattatore_csv(url, colonne_date, 3)
-#f = fc.formattatore_csv(url, colonna_data)
-print("Colonne originali:", f.df.columns)
+        colonne_date = ['Date\\time TX', 'Date\\time RX', 'Start date\\time']
+        for col in colonne_date:
+            if col in df.columns:
+                df[col] = pd.to_datetime(df[col], errors='coerce')
 
-f.traduci_colonne(f.url)
+        return df
+    except Exception as e:
+        raise ValueError(f"Errore nel caricamento micromissioni: {e}")
 
+def carica_e_filtra_csv_allarmi(file_path: str) -> pd.DataFrame:
+    try:
+        df = pd.read_csv(file_path)
+        df.columns = df.columns.str.strip()
 
-# f.testa_conversione()
+        colonne_date = ['Date time']
+        for col in colonne_date:
+            if col in df.columns:
+                df[col] = pd.to_datetime(df[col], errors='coerce')
 
-print(f.df.columns)
-
-f.converti_date(colonne_date)
-f.aggiungi_campo()
-f.esporta_file()
-
-
-
+        return df
+    except Exception as e:
+        raise ValueError(f"Errore nel caricamento allarmi: {e}")

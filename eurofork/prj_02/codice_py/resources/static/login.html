@@ -111,7 +111,7 @@
 
         } 
 
-        if (res.status === 401) {
+        if (res.status === 400) {
           const errorMessage = data.detail;
           feedback.innerHTML = `
             <div class="alert alert-danger alert-dismissible fade show" role="alert">

@@ -2,6 +2,9 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
 from .settings import settings
+import importlib
+import pkgutil
+from model import __path__ as model_path
 
 # crea una connessione al database
 engine = create_engine(settings.db_url, pool_pre_ping=True)
@@ -53,8 +56,12 @@ def get_db():
         db_instance.close_connection()  # chiude la sessione dopo la risposta
 
 def init_db():
-    from model.commessa import Commessa
-    from model.utente import Utente
-    from model.token import Token
+    # Importa dinamicamente tutti i moduli che definiscono modelli
+    for _, module_name, _ in pkgutil.iter_modules(model_path):
+        if not module_name.startswith("_"):  # evita __init__.py o moduli privati
+            importlib.import_module(f"model.{module_name}")
+
+    # Crea tutte le tabelle
     Base.metadata.create_all(bind=engine)
+    print("Tabelle create:", list(Base.metadata.tables.keys()))
 

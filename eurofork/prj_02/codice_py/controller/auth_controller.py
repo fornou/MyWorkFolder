@@ -22,7 +22,6 @@ class AuthController:
         self.router.post("/signup", status_code=status.HTTP_201_CREATED)(self.create_user)
         self.router.post("/signin")(self.login_user)
         self.router.post("/logout")(self.logout_user)
-        # self.router.get("/area-protetta")(self.protected_route)
 
     async def create_user(self, create_user_request: CreateUserRequest, db: Session = Depends(get_db)):
         auth_service = AuthService(db)
@@ -48,13 +47,13 @@ class AuthController:
         
         if not username:
             raise HTTPException(
-                status_code=status.HTTP_401_UNAUTHORIZED,
+                status_code=status.HTTP_400_BAD_REQUEST,
                 detail="Email non registrata",
                 headers={"WWW-Authenticate": "Bearer"}
             )
         elif not user:
             raise HTTPException(
-                status_code=status.HTTP_401_UNAUTHORIZED,
+                status_code=status.HTTP_400_BAD_REQUEST,
                 detail="Password errata",
                 headers={"WWW-Authenticate": "Bearer"}
             )

@@ -11,7 +11,7 @@ class MVCController:
         self.router.get("/commesse", response_class=HTMLResponse)(self.serve_commesse)
         self.router.get("/commesse/{commessa}", response_class=HTMLResponse)(self.serve_commessa)
         self.router.get("/create-new-commessa", response_class=HTMLResponse)(self.serve_form_commessa)
-        self.router.get("/commessa/{commessa}/{categoria}/upload-csv", response_class=HTMLResponse)(self.serve_form_upload_csv)
+        self.router.get("/commessa/{commessa}/upload-csv", response_class=HTMLResponse)(self.serve_form_upload_csv)
         self.router.get("/login", response_class=HTMLResponse)(self.serve_login)
         self.router.get("/signup", response_class=HTMLResponse)(self.serve_signup)
 
@@ -25,7 +25,7 @@ class MVCController:
         return self._serve_html("resources/static/form_commessa.html")
 
     async def serve_form_upload_csv(self):
-        return self._serve_html("resources/static/form_upload_csv.html")
+        return self._serve_html("resources/static/form_formatter_importer_csv.html")
     
     async def serve_login(self):
         return self._serve_html("resources/static/login.html")

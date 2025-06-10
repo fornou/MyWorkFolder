@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GraphFlow - Crea Commessa</title>
+  <title>GraphFlow - Carica CSV</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link rel="icon" type="image/x-icon" href="/static/img/logo platform.ico"/>
@@ -32,6 +32,7 @@
   </style>
 </head>
 <body>
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
     <div class="container-fluid">
       <a class="navbar-brand fw-bold" href="/commesse">GraphFlow</a>
@@ -50,7 +51,7 @@
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
           <li><span class="dropdown-item-text" id="user-email" style="font-size: 0.9rem;"></span></li>
           <li><hr class="dropdown-divider"></li>
-          <li><button class="dropdown-item" id="logout-btn" onsubmit="logout(event)">Logout</button></li>
+          <li><button class="dropdown-item" id="logout-btn">Logout</button></li>
         </ul>
       </div>
     </div>
@@ -58,28 +59,32 @@
 
   <div class="container" id="container">
     <div class="card p-4 rounded-4">
-      <h2 class="text-center mb-4">Crea una Nuova Commessa</h2>
-      <p class="text-center mb-4">Inserisci i dati della nuova commessa: un nome, una breve descrizione e una foto</p>
+      <h2 class="text-center mb-4">Importatore CSV </h2>
+      <p class="text-center mb-4">I dati del CSV verranno formattati secondo un algoritmo per poter essere in conseguenza inseriti nel Database</p>
 
-      <form id="commessaForm">
+      <form id="csvForm">
         <div class="mb-3">
           <label for="commessa" class="form-label">Nome commessa</label>
-          <input type="text" class="form-control" id="commessa" placeholder="Inserisci il nome della commessa...">
+          <input type="text" class="form-control" id="commessa">
         </div>
 
         <div class="mb-3">
-          <label for="descrizione" class="form-label">Descrizione</label>
-          <textarea class="form-control" id="descrizione" rows="3" maxlength="100" placeholder="Inserisci una descrizione..." ></textarea>
+          <label for="categoria" class="form-label">Categoria</label>
+          <select name="categoria" class="form-control" id="categoria">
+            <option value="" selected>Seleziona una categoria</option>
+            <option value="micromissioni">Micromissioni</option>
+            <option value="allarmi">Allarmi</option>
+          </select>
         </div>
 
         <div class="mb-4">
-          <label for="foto" class="form-label">Foto</label>
-          <input type="file" class="form-control" id="foto">
+          <label for="file" class="form-label">File</label>
+          <input type="file" class="form-control" id="file">
         </div>
 
         <div class="text-center">
           <button type="submit" class="btn btn-success px-4">
-            <i class="fa-solid fa-arrow-up-from-bracket me-2"></i>Crea Commessa
+            <i class="fa-solid fa-arrow-up-from-bracket me-2"></i>Carica Csv
           </button>
         </div>
       </form>
@@ -88,22 +93,25 @@
     </div>
   </div>
 
-
   <script type="module">
     import { isLogged, logout } from '/static/scripts/auth.js';
-    import {createCommessa} from '/static/scripts/commesse.js';
-    window.onload = () => {
-      isLogged();
-      document.getElementById('commessaForm').addEventListener('submit', (e) => {
+    import { formattaCsv, setPage } from '/static/scripts/csv.js?v=1';
+
+    window.addEventListener('DOMContentLoaded', () => {
+      isLogged(() => setPage());
+
+      document.getElementById('csvForm').addEventListener('submit', (e) => {
         e.preventDefault();
-        createCommessa();
+        formattaCsv();
       });
+
       document.getElementById('logout-btn').addEventListener('click', (e) => {
         e.preventDefault();
         logout();
       });
-    };
+    });
   </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

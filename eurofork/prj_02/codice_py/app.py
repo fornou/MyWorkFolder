@@ -12,7 +12,7 @@ from fastapi import Request
 from fastapi.responses import HTMLResponse
 from fastapi.exceptions import RequestValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
-
+from fastapi.responses import JSONResponse
 
 def create_app():
     app = FastAPI()
@@ -39,6 +39,7 @@ def create_app():
 
     @app.exception_handler(StarletteHTTPException)
     async def http_exception_handler(request: Request, exc: StarletteHTTPException):
+
         if exc.status_code == 404:
             try:
                 with open("resources/static/404.html", "r", encoding="utf-8") as f:
@@ -46,6 +47,15 @@ def create_app():
             except FileNotFoundError:
                 content = "<h1>404 Not Found</h1><p>La pagina richiesta non esiste.</p>"
             return HTMLResponse(content=content, status_code=404)
+
+        elif exc.status_code == 401:
+            try:
+                with open("resources/static/401.html", "r", encoding="utf-8") as f:
+                    content = f.read()
+            except FileNotFoundError:
+                content = "<h1>401 Not Authorized</h1><p>La pagina richiesta non esiste.</p>"
+            return HTMLResponse(content=content, status_code=401)
+
         else:
             # fallback per altre eccezioni HTTP
             return HTMLResponse(content=str(exc.detail), status_code=exc.status_code)

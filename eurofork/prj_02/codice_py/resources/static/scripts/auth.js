@@ -2,30 +2,39 @@ function getToken() {
   const token = localStorage.getItem('token');
   if (!token) {
     window.location.href = "/login";
-    return;
+    throw new Error("Token mancante: reindirizzamento al login.");
   }
   return token;
 }
 
 
-async function callAPIwithToken(method, url) {
-  try{ 
+export async function callAPIwithToken(method, url, body) {
+  try {
+    const token = getToken(); // Will throw and redirect if missing
+
+    const headers = {
+      'Authorization': `Bearer ${token}`
+    };
+
+    if (!(body instanceof FormData)) {
+      headers['Content-Type'] = 'application/json';
+    }
+
     const response = await fetch(url, {
-      method: method,
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${getToken()}`
-      },
-      credentials: 'include'
+      method,
+      headers,
+      credentials: 'include',
+      body,
     });
 
     return response;
-
   } catch (err) {
     console.error("Errore durante la richiesta API:", err);
     throw err;
   }
 }
+
+
 
 export async function isLogged(callbackOnSuccess) {
   try {
@@ -41,7 +50,6 @@ export async function isLogged(callbackOnSuccess) {
     const user = await response.json();
     window.currentUser = user;
 
-    // Mostra iniziali/email
     const initial = user.Email?.charAt(0).toUpperCase() || '?';
     document.getElementById('user-initial').innerText = initial;
     document.getElementById('user-email').innerText = user.Email;

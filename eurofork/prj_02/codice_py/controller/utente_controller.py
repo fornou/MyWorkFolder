@@ -8,7 +8,7 @@ from services.utente_service import UtenteService
 
 class UtenteController:
     def __init__(self):
-        self.router = APIRouter(prefix="/api/utente", tags=["Utenti"])#, dependencies=[Depends(get_current_user)])
+        self.router = APIRouter(prefix="/api/utente", tags=["Utenti"], dependencies=[Depends(get_current_user)])
         self._add_routes()
 
     def _add_routes(self):

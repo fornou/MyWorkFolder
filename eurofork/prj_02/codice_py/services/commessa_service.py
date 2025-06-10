@@ -10,9 +10,9 @@ class CommessaService:
 
     def get_commessa_by_id(self, commessa_id: int):
         return self.dao.get_by_id(commessa_id)
-    
-    def get_commessa_by_nome(self, commessa: str):
-        return self.dao.get_by_nome(commessa)
+
+    def get_commessa_by_nome(self, nome: str):
+        return self.dao.get_by_nome(nome)
 
     def search_commesse(self, title: str):
         return self.dao.get_by_filter(title)

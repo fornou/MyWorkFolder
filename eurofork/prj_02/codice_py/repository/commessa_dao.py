@@ -24,3 +24,4 @@ class CommessaDAO:
         self.db.commit()
         self.db.refresh(nuova)
         return nuova
+    
