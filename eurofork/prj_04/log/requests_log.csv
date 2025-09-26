@@ -1,0 +1,15 @@
+timestamp;model;txt_prompt; prompt_tokens; response_tokens; user_input; total_tokens;response_preview; history
+2025-09-26 14:54:56.145626;gpt-oss:120b-cloud;dov'era la macchina shuttle 2 quindi 7N0102 all'ora 1:49 pm del 9/15/2025 e che azioni stava svolgendo prova con intervallo più ampio tipo 1:49 e 1:50, non limitare;interpretazione_domanda.txt;446;3;449;anali;True
+2025-09-26 14:54:59.522827;gpt-oss:120b-cloud;dov'era la macchina shuttle 2 quindi 7N0102 all'ora 1:49 pm del 9/15/2025 e che azioni stava svolgendo prova con intervallo più ampio tipo 1:49 e 1:50, non limitare;crea_query.txt;1409;52;1461;SELEC;True
+2025-09-26 14:55:06.634042;gpt-oss:120b-cloud;dov'era la macchina shuttle 2 quindi 7N0102 all'ora 1:49 pm del 9/15/2025 e che azioni stava svolgendo prova con intervallo più ampio tipo 1:49 e 1:50, non limitare;analytical;1021;1158;2179;**Ris;True
+2025-09-26 14:55:13.910052;gpt-oss:120b-cloud;che cos'è la micromissione? risposta diretta;interpretazione_domanda.txt;1310;2;1312;gener;True
+2025-09-26 14:55:15.797661;gpt-oss:120b-cloud;che cos'è la micromissione? risposta diretta;risposta_generica.txt;1538;291;1829;Una *;True
+2025-09-26 14:55:32.750293;gpt-oss:120b-cloud;Grazie, ciao!! Sii diretto e salutami;interpretazione_domanda.txt;1329;2;1331;gener;True
+2025-09-26 14:55:34.774653;gpt-oss:120b-cloud;Grazie, ciao!! Sii diretto e salutami;risposta_generica.txt;1556;70;1626;Una m;True
+2025-09-26 14:56:38.389991;gpt-oss:120b-cloud;dov'era la macchina shuttle 2 quindi 7N0102 all'ora 1:49 pm del 9/15/2025 e che azioni stava svolgendo prova con intervallo più ampio tipo 1:49 e 1:50, non limitare;interpretazione_domanda.txt;446;3;449;anali;False
+2025-09-26 14:56:41.038646;gpt-oss:120b-cloud;dov'era la macchina shuttle 2 quindi 7N0102 all'ora 1:49 pm del 9/15/2025 e che azioni stava svolgendo prova con intervallo più ampio tipo 1:49 e 1:50, non limitare;crea_query.txt;1409;82;1491;SELEC;False
+2025-09-26 14:56:46.486499;gpt-oss:120b-cloud;dov'era la macchina shuttle 2 quindi 7N0102 all'ora 1:49 pm del 9/15/2025 e che azioni stava svolgendo prova con intervallo più ampio tipo 1:49 e 1:50, non limitare;analytical;446;1158;1604;**Ana;False
+2025-09-26 14:56:51.082444;gpt-oss:120b-cloud;che cos'è la micromissione? risposta diretta;interpretazione_domanda.txt;349;2;351;gener;False
+2025-09-26 14:56:52.913163;gpt-oss:120b-cloud;che cos'è la micromissione? risposta diretta;risposta_generica.txt;577;244;821;Una *;False
+2025-09-26 14:57:02.194156;gpt-oss:120b-cloud;Grazie, ciao!! Sii diretto e salutami;interpretazione_domanda.txt;350;2;352;gener;False
+2025-09-26 14:57:03.154731;gpt-oss:120b-cloud;Grazie, ciao!! Sii diretto e salutami;risposta_generica.txt;577;19;596;Ciao!;False

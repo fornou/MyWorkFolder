@@ -19,15 +19,39 @@ UPLOAD_FOLDER = os.getenv("UPLOAD_FOLDER")
 
 def genera_metabase_iframe(element_id: int, commessa: str):
     try:
+        print(f"METABASE_SECRET_KEY: {METABASE_SECRET_KEY}")
+        print(f"METABASE_SITE_URL: {METABASE_SITE_URL}")
+        print(f"Commessa: {commessa}")
+        print(f"Elemento: {element_id}")
+        
+        # Verifica che le variabili non siano None
+        if not METABASE_SECRET_KEY or not METABASE_SITE_URL:
+            raise ValueError("Variabili METABASE mancanti")
+        
+        print("Creando payload...")
         payload = {
             "resource": {"dashboard": element_id},
             "params": {"job_order": [commessa]},
-            "exp": round(time.time()) + (60 * 60 * 24)  # 1 giorno
+            "exp": round(time.time()) + (60 * 60 * 24)
         }
+        print(f"Payload creato: {payload}")
+        
+        print("Generando token JWT...")
         token = jwt.encode(payload, METABASE_SECRET_KEY, algorithm="HS256")
-        return f"{METABASE_SITE_URL}/embed/dashboard/{token}#bordered=true&titled=true"
+        print(f"Token generato: {token[:50]}...") # Stampa solo i primi 50 caratteri
+        
+        print("Creando URL...")
+        url = f"{METABASE_SITE_URL}/embed/dashboard/{token}#bordered=true&titled=true"
+        print(f"URL finale: {url}")
+        
+        return url
+        
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Errore: {str(e)}")
+        print(f"ERRORE in genera_metabase_iframe: {str(e)}")
+        print(f"Tipo errore: {type(e).__name__}")
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"Errore nella generazione iframe: {str(e)}")
 
 class CommessaController:
     def __init__(self):
@@ -44,20 +68,39 @@ class CommessaController:
 
     def get_grafico_commessa(self, commessa: int, db: Session = Depends(get_db)):
         try:
+            print(f"=== INIZIO get_grafico_commessa per commessa ID: {commessa} ===")
+            
             commessa_service = CommessaService(db)
             commessa_data = commessa_service.get_commessa_by_id(commessa)
-
-            # Dashboard ID fisso (esempio 130)
+            
+            if not commessa_data:
+                print("Commessa non trovata!")
+                raise HTTPException(status_code=404, detail="Commessa non trovata")
+                
+            print(f"Commessa trovata: Nome={commessa_data.Nome}")
+            
             dashboard_id = 130
-
+            print(f"Chiamando genera_metabase_iframe con dashboard_id={dashboard_id}, nome={commessa_data.Nome}")
+            
             iframe_url = genera_metabase_iframe(dashboard_id, commessa_data.Nome)
+            print(f"iframe_url ricevuto: {iframe_url}")
+            
             iframe_html = f'''
                 <iframe src="{iframe_url}" frameborder="0" width="100%" height="600" allowtransparency></iframe>
             '''
+            print("Restituendo HTMLResponse...")
             return HTMLResponse(content=iframe_html)
+            
+        except HTTPException:
+            # Re-raise HTTPException così come sono
+            raise
         except Exception as e:
+            print(f"ERRORE GENERALE in get_grafico_commessa: {str(e)}")
+            print(f"Tipo errore: {type(e).__name__}")
+            import traceback
+            traceback.print_exc()
             raise HTTPException(status_code=500, detail=f"Errore nel generare l'iframe: {str(e)}")
-
+            
     def get_commessa_by_nome(self, commessa: int, db: Session = Depends(get_db)):
         try:
             commessa_service = CommessaService(db)

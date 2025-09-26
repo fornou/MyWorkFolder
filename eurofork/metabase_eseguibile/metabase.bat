@@ -34,4 +34,4 @@ timeout /t 45 /nobreak >nul
 cls
 echo Apro browser all'indirizzo http://localhost:3000/dashboard/35
 rem Apre il browser di Chrome sull'indirizzo passato
-start "" "C:\Program Files\Google\Chrome\Application\chrome.exe" http://localhost:3000/dashboard/33
+start "" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" http://localhost:3000/dashboard
