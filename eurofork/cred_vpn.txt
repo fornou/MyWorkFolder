@@ -1,0 +1,28 @@
+Geek Connection
+
+VPN Name: Geek_Medicair	
+User: herick.martuscelo
+Pw: Roletto01!
+Token: ...
+
+Link RMS:
+ - http://10.1.70.10/static/rms/#/login
+ - http://10.1.70.10/static/wms/#/frame?r=%2Fstatic%2Fapollo%2Fhtml%2Fadmin%2Fmonitor%2FrobotControl.html
+
+Login RMS
+User: admin 
+Pw:  Geekplus_2020
+
+-----------------------------------------------------------------------------------------------------------
+
+Orangina Connection
+
+VPN Name: Alstef Orangina
+User: gbudescu
+Pw: FJzIZkbkyqa!!
+
+RDM: France Orangina
+
+WCS --> Due Omini
+User: orange/ eurofork
+Pw: 190/ 93155

@@ -13,3 +13,295 @@ timestamp;model;txt_prompt; prompt_tokens; response_tokens; user_input; total_to
 2025-09-26 14:56:52.913163;gpt-oss:120b-cloud;che cos'è la micromissione? risposta diretta;risposta_generica.txt;577;244;821;Una *;False
 2025-09-26 14:57:02.194156;gpt-oss:120b-cloud;Grazie, ciao!! Sii diretto e salutami;interpretazione_domanda.txt;350;2;352;gener;False
 2025-09-26 14:57:03.154731;gpt-oss:120b-cloud;Grazie, ciao!! Sii diretto e salutami;risposta_generica.txt;577;19;596;Ciao!;False
+2025-09-29 14:04:10.255026;gpt-oss:120b-cloud;dammi le informazioni riguardanti le macchine che hanno come valori 7N010*;interpretazione_domanda.txt;362;3;365;anali;False
+2025-09-29 14:04:13.298003;gpt-oss:120b-cloud;dammi le informazioni riguardanti le macchine che hanno come valori 7N010*;crea_query.txt;1325;19;1344;SELEC;False
+2025-09-29 14:04:26.575051;gpt-oss:120b-cloud;dammi le informazioni riguardanti le macchine che hanno come valori 7N010*;analytical;1793;1541;3334;**Rie;False
+2025-09-29 14:05:21.342669;gpt-oss:120b-cloud;dammi qualche percentuale sulle macchine con meno errori ;interpretazione_domanda.txt;347;3;350;anali;False
+2025-09-29 14:05:26.710066;gpt-oss:120b-cloud;dammi qualche percentuale sulle macchine con meno errori ;crea_query.txt;1311;443;1754;SELEC;False
+2025-09-29 14:05:32.532109;gpt-oss:120b-cloud;dammi qualche percentuale sulle macchine con meno errori ;analytical;658;918;1576;**Ana;False
+2025-09-29 14:06:05.183024;gpt-oss:120b-cloud;fallo senza limite, non c'è bisogno ;interpretazione_domanda.txt;345;2;347;gener;False
+2025-09-29 14:06:13.250146;gpt-oss:120b-cloud;fallo senza limite, non c'è bisogno ;risposta_generica.txt;573;1669;2242;**Eur;False
+2025-09-29 14:07:14.527864;gpt-oss:120b-cloud;dammi qualche informazione riguardante le percentuali di missioni andate a buon fine;interpretazione_domanda.txt;361;3;364;anali;True
+2025-09-29 14:07:21.042571;gpt-oss:120b-cloud;dammi qualche informazione riguardante le percentuali di missioni andate a buon fine;crea_query.txt;1325;468;1793;SELEC;True
+2025-09-29 14:07:26.615941;gpt-oss:120b-cloud;dammi qualche informazione riguardante le percentuali di missioni andate a buon fine;analytical;576;568;1144;**Ana;True
+2025-09-29 14:07:55.884033;gpt-oss:120b-cloud;ok si va bene però fallo per ogni macchina e per ogni tipo di missione;interpretazione_domanda.txt;875;3;878;anali;True
+2025-09-29 14:08:00.903860;gpt-oss:120b-cloud;ok si va bene però fallo per ogni macchina e per ogni tipo di missione;crea_query.txt;1839;522;2361;SELEC;True
+2025-09-29 14:08:13.602355;gpt-oss:120b-cloud;ok si va bene però fallo per ogni macchina e per ogni tipo di missione;analytical;1129;1889;3018;**Ris;True
+2025-09-29 14:08:55.498889;gpt-oss:120b-cloud;togli il where, lo farà su tutti in automatico tranquillo;interpretazione_domanda.txt;1420;3;1423;anali;True
+2025-09-29 14:08:58.430889;gpt-oss:120b-cloud;togli il where, lo farà su tutti in automatico tranquillo;crea_query.txt;2384;106;2490;SELEC;True
+2025-09-29 14:09:05.637686;gpt-oss:120b-cloud;togli il where, lo farà su tutti in automatico tranquillo;analytical;1504;1159;2663;**Ris;True
+2025-09-29 14:09:38.360260;gpt-oss:120b-cloud;ok togli il limite e mettimeli in ordine per percentuale;interpretazione_domanda.txt;1303;3;1306;anali;True
+2025-09-29 14:09:41.148203;gpt-oss:120b-cloud;ok togli il limite e mettimeli in ordine per percentuale;crea_query.txt;2267;108;2375;SELEC;True
+2025-09-29 14:09:49.973851;gpt-oss:120b-cloud;ok togli il limite e mettimeli in ordine per percentuale;analytical;2410;1463;3873;**Ris;True
+2025-09-29 14:11:07.623540;gpt-oss:120b-cloud;7S0407 (50) Move out – 69,57 % esaminiamo questa macchina su questa missione per capire come mai è quella che va peggio;interpretazione_domanda.txt;2230;3;2233;anali;True
+2025-09-29 14:11:11.364867;gpt-oss:120b-cloud;7S0407 (50) Move out – 69,57 % esaminiamo questa macchina su questa missione per capire come mai è quella che va peggio;crea_query.txt;3195;25;3220;SELEC;True
+2025-09-29 14:11:26.716729;gpt-oss:120b-cloud;7S0407 (50) Move out – 69,57 % esaminiamo questa macchina su questa missione per capire come mai è quella che va peggio;analytical;5723;1600;7323;**Ana;True
+2025-09-29 14:14:29.300148;gpt-oss:120b-cloud;quindi abbiamo 23 missioni totali e quelle diverse da ok si sa quanto ci hanno impiegato per terminare? ;interpretazione_domanda.txt;5655;3;5658;anali;True
+2025-09-29 14:14:32.449630;gpt-oss:120b-cloud;quindi abbiamo 23 missioni totali e quelle diverse da ok si sa quanto ci hanno impiegato per terminare? ;crea_query.txt;6618;74;6692;SELEC;True
+2025-09-29 14:14:44.786394;gpt-oss:120b-cloud;quindi abbiamo 23 missioni totali e quelle diverse da ok si sa quanto ci hanno impiegato per terminare? ;analytical;5451;714;6165;**Ris;True
+2025-09-29 14:16:26.419167;gpt-oss:120b-cloud;no attenzione non dicevo su tutte le missioni ma sulle missioni di cui stavamo parlando prima ovvero  “(50) Move out” per la macchina 7S0407**;interpretazione_domanda.txt;4405;3;4408;anali;True
+2025-09-29 14:16:29.359629;gpt-oss:120b-cloud;no attenzione non dicevo su tutte le missioni ma sulle missioni di cui stavamo parlando prima ovvero  “(50) Move out” per la macchina 7S0407**;crea_query.txt;5368;93;5461;SELEC;True
+2025-09-29 14:16:32.564609;gpt-oss:120b-cloud;no attenzione non dicevo su tutte le missioni ma sulle missioni di cui stavamo parlando prima ovvero  “(50) Move out” per la macchina 7S0407**;analytical;4166;450;4616;**Ana;True
+2025-09-29 14:17:10.832825;gpt-oss:120b-cloud;ok tu mi hai stimato un numero ora verifichiamo che sia effettivamente così;interpretazione_domanda.txt;652;3;655;anali;True
+2025-09-29 14:17:15.103979;gpt-oss:120b-cloud;ok tu mi hai stimato un numero ora verifichiamo che sia effettivamente così;crea_query.txt;1616;93;1709;SELEC;True
+2025-09-29 14:17:17.876090;gpt-oss:120b-cloud;ok tu mi hai stimato un numero ora verifichiamo che sia effettivamente così;analytical;462;331;793;**Ris;True
+2025-09-29 14:18:29.634746;gpt-oss:120b-cloud;quindi secondo questo ragionamento il numero di missioni andate a buon fine sono 23 - 7 ovvero 16 è così?;interpretazione_domanda.txt;684;3;687;anali;True
+2025-09-29 14:18:36.776264;gpt-oss:120b-cloud;quindi secondo questo ragionamento il numero di missioni andate a buon fine sono 23 - 7 ovvero 16 è così?;crea_query.txt;1647;92;1739;SELEC;True
+2025-09-29 14:18:39.632210;gpt-oss:120b-cloud;quindi secondo questo ragionamento il numero di missioni andate a buon fine sono 23 - 7 ovvero 16 è così?;analytical;457;383;840;Confe;True
+2025-09-29 14:19:27.754947;gpt-oss:120b-cloud;sai dirmi quelle 7 esattamente che risultati hanno dato? e in che numero e percentuale;interpretazione_domanda.txt;650;3;653;anali;True
+2025-09-29 14:19:31.154332;gpt-oss:120b-cloud;sai dirmi quelle 7 esattamente che risultati hanno dato? e in che numero e percentuale;crea_query.txt;1613;123;1736;SELEC;True
+2025-09-29 14:19:34.979236;gpt-oss:120b-cloud;sai dirmi quelle 7 esattamente che risultati hanno dato? e in che numero e percentuale;analytical;512;754;1266;**Ana;True
+2025-09-29 14:21:13.313509;gpt-oss:120b-cloud;ok perfetto ma le non ok sul totale quanto fanno? ;interpretazione_domanda.txt;686;3;689;anali;True
+2025-09-29 14:21:18.913603;gpt-oss:120b-cloud;ok perfetto ma le non ok sul totale quanto fanno? ;crea_query.txt;1650;115;1765;SELEC;True
+2025-09-29 14:21:34.207826;gpt-oss:120b-cloud;ok perfetto ma le non ok sul totale quanto fanno? ;analytical;525;624;1149;**Ria;True
+2025-09-29 14:23:45.399625;gpt-oss:120b-cloud;perfetto ora dammi il piano complessivo di nuovo per tutte le macchine non metterle nel filtro non c'è bisogno vengono inderite di base tanto;interpretazione_domanda.txt;753;3;756;anali;True
+2025-09-29 14:23:50.242925;gpt-oss:120b-cloud;perfetto ora dammi il piano complessivo di nuovo per tutte le macchine non metterle nel filtro non c'è bisogno vengono inderite di base tanto;crea_query.txt;1717;49;1766;SELEC;True
+2025-09-29 14:23:59.130610;gpt-oss:120b-cloud;perfetto ora dammi il piano complessivo di nuovo per tutte le macchine non metterle nel filtro non c'è bisogno vengono inderite di base tanto;analytical;706;850;1556;**Pia;True
+2025-09-29 14:25:39.722323;gpt-oss:120b-cloud;bene così mi piace questa visualizzazione, mi interesserebbe capire il tempo impiegato in media;interpretazione_domanda.txt;846;3;849;anali;True
+2025-09-29 14:25:43.042525;gpt-oss:120b-cloud;bene così mi piace questa visualizzazione, mi interesserebbe capire il tempo impiegato in media;crea_query.txt;1809;21;1830;SELEC;True
+2025-09-29 14:25:46.328746;gpt-oss:120b-cloud;bene così mi piace questa visualizzazione, mi interesserebbe capire il tempo impiegato in media;analytical;584;489;1073;**Tem;True
+2025-09-29 14:26:24.197868;gpt-oss:120b-cloud;no ovviamente per ogni risultato ;interpretazione_domanda.txt;718;3;721;anali;True
+2025-09-29 14:26:27.252540;gpt-oss:120b-cloud;no ovviamente per ogni risultato ;crea_query.txt;1682;37;1719;SELEC;True
+2025-09-29 14:26:34.588198;gpt-oss:120b-cloud;no ovviamente per ogni risultato ;analytical;675;1463;2138;**Ana;True
+2025-09-29 14:29:18.669015;gpt-oss:120b-cloud;proviamo a concentrarci su un problema preciso e vedere come potrebbe essere scattato?;interpretazione_domanda.txt;700;2;702;gener;True
+2025-09-29 14:29:42.099776;gpt-oss:120b-cloud;proviamo a concentrarci su un problema preciso e vedere come potrebbe essere scattato?;risposta_generica.txt;928;2236;3164;### 1;True
+2025-09-29 14:30:39.878550;gpt-oss:120b-cloud;mi dici tutti i tipi di errore presenti e che cosa vogliono dire;interpretazione_domanda.txt;694;3;697;anali;True
+2025-09-29 14:30:43.249945;gpt-oss:120b-cloud;mi dici tutti i tipi di errore presenti e che cosa vogliono dire;crea_query.txt;1658;47;1705;SELEC;True
+2025-09-29 14:30:54.897320;gpt-oss:120b-cloud;mi dici tutti i tipi di errore presenti e che cosa vogliono dire;analytical;520;1488;2008;**Ele;True
+2025-09-29 14:57:19.500770;gpt-oss:120b-cloud;contami i dati per ID_Commessa;interpretazione_domanda.txt;785;3;788;anali;True
+2025-09-29 14:57:21.699639;gpt-oss:120b-cloud;contami i dati per ID_Commessa;crea_query.txt;1749;21;1770;SELEC;True
+2025-09-29 14:57:23.983534;gpt-oss:120b-cloud;contami i dati per ID_Commessa;analytical;297;347;644;**Con;True
+2025-09-29 14:58:12.771244;gpt-oss:120b-cloud;fai una inner join con tabella Commesse su ID_Commessa e dimmi i nomi ;interpretazione_domanda.txt;574;3;577;anali;True
+2025-09-29 14:58:16.415521;gpt-oss:120b-cloud;fai una inner join con tabella Commesse su ID_Commessa e dimmi i nomi ;crea_query.txt;1538;27;1565;SELEC;True
+2025-09-29 14:58:18.845289;gpt-oss:120b-cloud;fai una inner join con tabella Commesse su ID_Commessa e dimmi i nomi ;analytical;325;251;576;**Ris;True
+2025-09-29 14:58:29.999714;gpt-oss:120b-cloud;ok stampa anche ID;interpretazione_domanda.txt;459;3;462;anali;True
+2025-09-29 14:58:32.375529;gpt-oss:120b-cloud;ok stampa anche ID;crea_query.txt;1423;36;1459;SELEC;True
+2025-09-29 14:58:34.556037;gpt-oss:120b-cloud;ok stampa anche ID;analytical;248;362;610;Ecco ;True
+2025-09-29 14:59:06.382822;gpt-oss:120b-cloud;dammi tutte le date in cui sono presenti le missioni di orangina ovvero commessa 1;interpretazione_domanda.txt;511;3;514;anali;True
+2025-09-29 14:59:09.197504;gpt-oss:120b-cloud;dammi tutte le date in cui sono presenti le missioni di orangina ovvero commessa 1;crea_query.txt;1475;23;1498;SELEC;True
+2025-09-29 14:59:12.437302;gpt-oss:120b-cloud;dammi tutte le date in cui sono presenti le missioni di orangina ovvero commessa 1;analytical;252;185;437;**Dat;True
+2025-09-29 14:59:40.032353;gpt-oss:120b-cloud;e della 2;interpretazione_domanda.txt;471;3;474;anali;True
+2025-09-29 14:59:42.064071;gpt-oss:120b-cloud;e della 2;crea_query.txt;1435;23;1458;SELEC;True
+2025-09-29 14:59:44.349917;gpt-oss:120b-cloud;e della 2;analytical;315;235;550;**Dat;True
+2025-09-29 15:00:08.267202;gpt-oss:120b-cloud;di nuovo della 1 non è possibile che ci sia solo il 15..;interpretazione_domanda.txt;544;3;547;anali;True
+2025-09-29 15:00:10.542761;gpt-oss:120b-cloud;di nuovo della 1 non è possibile che ci sia solo il 15..;crea_query.txt;1507;17;1524;SELEC;True
+2025-09-29 15:00:17.089767;gpt-oss:120b-cloud;di nuovo della 1 non è possibile che ci sia solo il 15..;analytical;1412;1083;2495;**Ris;True
+2025-09-29 15:01:03.083373;gpt-oss:120b-cloud;dammi tutte le date di commessa 1;interpretazione_domanda.txt;341;3;344;anali;True
+2025-09-29 15:01:05.272268;gpt-oss:120b-cloud;dammi tutte le date di commessa 1;crea_query.txt;1305;30;1335;SELEC;True
+2025-09-29 15:02:02.884445;gpt-oss:120b-cloud;dammi tutte le date in cui sono presenti le missioni di orangina ovvero commessa 1;interpretazione_domanda.txt;365;3;368;anali;True
+2025-09-29 15:02:05.556671;gpt-oss:120b-cloud;dammi tutte le date in cui sono presenti le missioni di orangina ovvero commessa 1;crea_query.txt;1329;23;1352;SELEC;True
+2025-09-29 15:02:08.491903;gpt-oss:120b-cloud;dammi tutte le date in cui sono presenti le missioni di orangina ovvero commessa 1;analytical;200;245;445;**Dat;True
+2025-09-29 15:02:37.546293;gpt-oss:120b-cloud;ok prendiamo in esamine il periodo dal 22 al 26 e esaminiamo ;interpretazione_domanda.txt;497;3;500;anali;True
+2025-09-29 15:02:40.299505;gpt-oss:120b-cloud;ok prendiamo in esamine il periodo dal 22 al 26 e esaminiamo ;crea_query.txt;1461;36;1497;SELEC;True
+2025-09-29 15:02:51.577152;gpt-oss:120b-cloud;ok prendiamo in esamine il periodo dal 22 al 26 e esaminiamo ;analytical;1888;2437;4325;**Ana;True
+2025-09-29 15:06:48.892714;gpt-oss:120b-cloud;fammi unanalisi veloce su questo periodo;interpretazione_domanda.txt;2170;3;2173;anali;True
+2025-09-29 15:06:51.954204;gpt-oss:120b-cloud;fammi unanalisi veloce su questo periodo;crea_query.txt;3133;110;3243;SELEC;True
+2025-09-29 15:07:02.116773;gpt-oss:120b-cloud;fammi unanalisi veloce su questo periodo;analytical;2124;1184;3308;**Ana;True
+2025-09-29 15:07:20.962151;gpt-oss:120b-cloud;non ti limitare solo a quei due risultati fallo pr utti;interpretazione_domanda.txt;2303;3;2306;anali;True
+2025-09-29 15:07:24.269096;gpt-oss:120b-cloud;non ti limitare solo a quei due risultati fallo pr utti;crea_query.txt;3267;78;3345;SELEC;True
+2025-09-29 15:07:35.442427;gpt-oss:120b-cloud;non ti limitare solo a quei due risultati fallo pr utti;analytical;2839;1798;4637;**Ana;True
+2025-09-29 15:10:00.567125;gpt-oss:120b-cloud;ci dovrebbe essere un errore che riguarda il traction driver fault sul satellite però questo lo vedi solo se interroghi la tabella Allarmi dove per ogni risultato "grave" c'è un codice che specifica;interpretazione_domanda.txt;1536;3;1539;anali;True
+2025-09-29 15:10:04.904355;gpt-oss:120b-cloud;ci dovrebbe essere un errore che riguarda il traction driver fault sul satellite però questo lo vedi solo se interroghi la tabella Allarmi dove per ogni risultato "grave" c'è un codice che specifica;crea_query.txt;2500;24;2524;SELEC;True
+2025-09-29 15:10:17.248939;gpt-oss:120b-cloud;ci dovrebbe essere un errore che riguarda il traction driver fault sul satellite però questo lo vedi solo se interroghi la tabella Allarmi dove per ogni risultato "grave" c'è un codice che specifica;analytical;1246;1016;2262;**Ana;True
+2025-09-29 15:11:00.141743;gpt-oss:120b-cloud;non hai trovato nulla perchè il codice è sbagliato, è salvato così nel db #2006 -  Hardware -  Traction driver Fault;interpretazione_domanda.txt;1325;3;1328;anali;True
+2025-09-29 15:11:03.759851;gpt-oss:120b-cloud;non hai trovato nulla perchè il codice è sbagliato, è salvato così nel db #2006 -  Hardware -  Traction driver Fault;crea_query.txt;2289;26;2315;SELEC;True
+2025-09-29 15:11:15.345571;gpt-oss:120b-cloud;non hai trovato nulla perchè il codice è sbagliato, è salvato così nel db #2006 -  Hardware -  Traction driver Fault;analytical;1049;1338;2387;**Ris;True
+2025-09-29 15:12:52.355801;gpt-oss:120b-cloud;non hai trovato nulla perchè non devi cercare per risultato ma per un'altra cosa, fai un'attimo una describe Allarmi così capisci i nomi dei campi;interpretazione_domanda.txt;563;3;566;anali;True
+2025-09-29 15:12:54.342023;gpt-oss:120b-cloud;non hai trovato nulla perchè non devi cercare per risultato ma per un'altra cosa, fai un'attimo una describe Allarmi così capisci i nomi dei campi;crea_query.txt;1527;9;1536;PRAGM;True
+2025-09-29 15:13:07.350604;gpt-oss:120b-cloud;non pragma ma describe;interpretazione_domanda.txt;481;2;483;gener;True
+2025-09-29 15:14:39.810431;gpt-oss:120b-cloud;fai una describe di Allarmi;interpretazione_domanda.txt;337;3;340;anali;True
+2025-09-29 15:14:42.608626;gpt-oss:120b-cloud;fai una describe di Allarmi;crea_query.txt;1301;85;1386;SELEC;True
+2025-09-29 15:14:52.547875;gpt-oss:120b-cloud;fai una describe di Allarmi;analytical;350;1476;1826;**Ana;True
+2025-09-29 15:15:15.562161;gpt-oss:120b-cloud;no non di micromissioni ma di Allarmi un'altra tabella ;interpretazione_domanda.txt;645;3;648;anali;True
+2025-09-29 15:15:20.253248;gpt-oss:120b-cloud;no non di micromissioni ma di Allarmi un'altra tabella ;crea_query.txt;1609;451;2060;SELEC;True
+2025-09-29 15:15:44.836294;gpt-oss:120b-cloud;no non di micromissioni ma di Allarmi un'altra tabella devi fare una query di DESCRIBE Allarmi,;interpretazione_domanda.txt;1166;3;1169;anali;True
+2025-09-29 15:15:46.946061;gpt-oss:120b-cloud;no non di micromissioni ma di Allarmi un'altra tabella devi fare una query di DESCRIBE Allarmi,;crea_query.txt;2130;9;2139;PRAGM;True
+2025-09-29 15:16:13.524981;gpt-oss:120b-cloud;ma cazzo ti ho detto di usare pragma??!! no usa describe tabella allarmi;interpretazione_domanda.txt;926;2;928;gener;True
+2025-09-29 15:16:22.087613;gpt-oss:120b-cloud;ma cazzo ti ho detto di usare pragma??!! no usa describe tabella allarmi;risposta_generica.txt;1154;2216;3370;**Com;True
+2025-09-29 15:16:51.775238;gpt-oss:120b-cloud;esegui la query DESCRIBE Allarmi,;interpretazione_domanda.txt;911;3;914;anali;True
+2025-09-29 15:16:55.475168;gpt-oss:120b-cloud;esegui la query DESCRIBE Allarmi,;crea_query.txt;1875;10;1885;SELEC;True
+2025-09-29 15:17:08.842384;gpt-oss:120b-cloud;esegui la query DESCRIBE Allarmi,;analytical;185;1109;1294;**Ris;True
+2025-09-29 15:18:06.436757;gpt-oss:120b-cloud;fai show tables allora così vedi la tabella;interpretazione_domanda.txt;437;3;440;anali;True
+2025-09-29 15:18:08.565768;gpt-oss:120b-cloud;fai show tables allora così vedi la tabella;crea_query.txt;1401;14;1415;SELEC;True
+2025-09-29 15:18:32.892027;gpt-oss:120b-cloud;ma cosa fai?! esegui una query di describe!!! su allarmi;interpretazione_domanda.txt;439;3;442;anali;True
+2025-09-29 15:18:35.764397;gpt-oss:120b-cloud;ma cosa fai?! esegui una query di describe!!! su allarmi;crea_query.txt;1403;21;1424;SELEC;True
+2025-09-29 15:18:47.573887;gpt-oss:120b-cloud;ma cosa fai?! esegui una query di describe!!! su allarmi;analytical;1871;1056;2927;**Ris;True
+2025-09-29 15:19:21.888730;gpt-oss:120b-cloud;Devi eseguire una query di DESCRIBE sulla tabella Allarmi quindi penso che si scriva DESCRIBE Allarmi, eseguila!!;interpretazione_domanda.txt;2185;3;2188;anali;True
+2025-09-29 15:19:25.557201;gpt-oss:120b-cloud;Devi eseguire una query di DESCRIBE sulla tabella Allarmi quindi penso che si scriva DESCRIBE Allarmi, eseguila!!;crea_query.txt;3148;9;3157;PRAGM;True
+2025-09-29 15:19:45.676754;gpt-oss:120b-cloud;Devi eseguire una query di DESCRIBE sulla tabella Allarmi quindi penso che si scriva DESCRIBE Allarmi, eseguila!! NON USARE PRAGMA USA DESCRIBE SIAMO IN MYSQL;interpretazione_domanda.txt;2237;3;2240;anali;True
+2025-09-29 15:19:49.621800;gpt-oss:120b-cloud;Devi eseguire una query di DESCRIBE sulla tabella Allarmi quindi penso che si scriva DESCRIBE Allarmi, eseguila!! NON USARE PRAGMA USA DESCRIBE SIAMO IN MYSQL;crea_query.txt;3201;9;3210;PRAGM;True
+2025-09-29 15:20:08.753122;gpt-oss:120b-cloud;Devi eseguire una query di DESCRIBE sulla tabella Allarmi quindi penso che si scriva DESCRIBE Allarmi, eseguila!! NON USARE PRAGMA!!! USA DESCRIBE SIAMO IN MYSQL NON MI FARE INCAZZARE;interpretazione_domanda.txt;602;3;605;anali;True
+2025-09-29 15:20:11.959842;gpt-oss:120b-cloud;Devi eseguire una query di DESCRIBE sulla tabella Allarmi quindi penso che si scriva DESCRIBE Allarmi, eseguila!! NON USARE PRAGMA!!! USA DESCRIBE SIAMO IN MYSQL NON MI FARE INCAZZARE;crea_query.txt;1566;17;1583;SELEC;True
+2025-09-29 15:20:34.118888;gpt-oss:120b-cloud;ma perchè fai così e non esegui una query di describe;interpretazione_domanda.txt;545;3;548;anali;True
+2025-09-29 15:20:38.013486;gpt-oss:120b-cloud;ma perchè fai così e non esegui una query di describe;crea_query.txt;1509;17;1526;SELEC;True
+2025-09-29 15:36:09.828325;gpt-oss:120b-cloud;associa i risultati di missione agli allarmi di allarmi così che veda una sorta di collegamento usa la tabella associazioni per fare i collegamenti, sempre di orangina quindi commessa 1;interpretazione_domanda.txt;417;3;420;anali;True
+2025-09-29 15:38:06.618673;gpt-oss:120b-cloud;associa i risultati di missione agli allarmi di allarmi così che veda una sorta di collegamento usa la tabella associazioni per fare i collegamenti, sempre di orangina quindi commessa 1;interpretazione_domanda.txt;417;3;420;anali;True
+2025-09-29 15:41:21.390240;gpt-oss:120b-cloud;associa i risultati di missione agli allarmi di allarmi così che veda una sorta di collegamento usa la tabella associazioni per fare i collegamenti, sempre di orangina quindi commessa 1;interpretazione_domanda.txt;417;3;420;anali;True
+2025-09-29 15:41:28.315758;gpt-oss:120b-cloud;associa i risultati di missione agli allarmi di allarmi così che veda una sorta di collegamento usa la tabella associazioni per fare i collegamenti, sempre di orangina quindi commessa 1;crea_query.txt;3030;197;3227;SELEC;True
+2025-09-29 15:41:38.335647;gpt-oss:120b-cloud;associa i risultati di missione agli allarmi di allarmi così che veda una sorta di collegamento usa la tabella associazioni per fare i collegamenti, sempre di orangina quindi commessa 1;analytical;317;2123;2440;**Ris;True
+2025-09-29 15:43:12.842249;gpt-oss:120b-cloud;associa i risultati di missione agli allarmi di allarmi così che veda una sorta di collegamento usa la tabella associazioni per fare i collegamenti, sempre di orangina quindi commessa 1;interpretazione_domanda.txt;674;3;677;anali;True
+2025-09-29 15:43:18.205798;gpt-oss:120b-cloud;associa i risultati di missione agli allarmi di allarmi così che veda una sorta di collegamento usa la tabella associazioni per fare i collegamenti, sempre di orangina quindi commessa 1;crea_query.txt;3287;169;3456;SELEC;True
+2025-09-29 15:43:25.928795;gpt-oss:120b-cloud;associa i risultati di missione agli allarmi di allarmi così che veda una sorta di collegamento usa la tabella associazioni per fare i collegamenti, sempre di orangina quindi commessa 1;analytical;546;1475;2021;**Ris;True
+2025-09-29 15:43:57.202358;gpt-oss:120b-cloud;ma scusa eh, micromissioni si collega a commesse, prova;interpretazione_domanda.txt;841;3;844;anali;True
+2025-09-29 15:44:01.219484;gpt-oss:120b-cloud;ma scusa eh, micromissioni si collega a commesse, prova;crea_query.txt;3454;72;3526;SELEC;True
+2025-09-29 15:44:09.769370;gpt-oss:120b-cloud;ma scusa eh, micromissioni si collega a commesse, prova;analytical;1057;1292;2349;**Ris;True
+2025-09-29 15:46:16.960230;gpt-oss:120b-cloud;bravissimo, micromissioni si deve collegare ad Allarmi per mostrare una missione che risultato ha fatto ma per farlo si deve collegare anche ad associazioni così che capisca la macchina a quali tipi di allarmi e collegata e questi tipi a quale allarme effettivo sono colllegati;interpretazione_domanda.txt;1262;3;1265;anali;True
+2025-09-29 15:46:25.985108;gpt-oss:120b-cloud;bravissimo, micromissioni si deve collegare ad Allarmi per mostrare una missione che risultato ha fatto ma per farlo si deve collegare anche ad associazioni così che capisca la macchina a quali tipi di allarmi e collegata e questi tipi a quale allarme effettivo sono colllegati;crea_query.txt;3874;185;4059;SELEC;True
+2025-09-29 15:46:36.992761;gpt-oss:120b-cloud;bravissimo, micromissioni si deve collegare ad Allarmi per mostrare una missione che risultato ha fatto ma per farlo si deve collegare anche ad associazioni così che capisca la macchina a quali tipi di allarmi e collegata e questi tipi a quale allarme effettivo sono colllegati;analytical;1071;1869;2940;**Ris;True
+2025-09-29 15:47:43.645650;gpt-oss:120b-cloud;falla uguale ma togli sto limite;interpretazione_domanda.txt;1175;3;1178;anali;True
+2025-09-29 15:47:49.369480;gpt-oss:120b-cloud;falla uguale ma togli sto limite;crea_query.txt;3788;181;3969;SELEC;True
+2025-09-29 15:48:02.476848;gpt-oss:120b-cloud;falla uguale ma togli sto limite;analytical;1076;2061;3137;**Ris;True
+2025-09-29 15:48:31.965965;gpt-oss:120b-cloud;e fallo no?;interpretazione_domanda.txt;803;3;806;anali;True
+2025-09-29 15:48:37.214999;gpt-oss:120b-cloud;e fallo no?;crea_query.txt;3416;179;3595;SELEC;True
+2025-09-29 15:48:48.773966;gpt-oss:120b-cloud;e fallo no?;analytical;651;1427;2078;**Ana;True
+2025-09-29 16:07:17.543737;gpt-oss:120b-cloud;cls;interpretazione_domanda.txt;721;2;723;gener;True
+2025-09-29 16:07:19.139038;gpt-oss:120b-cloud;cls;risposta_generica.txt;949;155;1104;Certo;True
+2025-09-30 11:45:33.747068;gpt-oss:120b-cloud;analizziamo i dati di Orangina nel periodo più recente, ovvero dal 22 al 28 settembre;interpretazione_domanda.txt;373;3;376;anali;True
+2025-09-30 11:45:41.554729;gpt-oss:120b-cloud;analizziamo i dati di Orangina nel periodo più recente, ovvero dal 22 al 28 settembre;crea_query.txt;3181;152;3333;SELEC;True
+2025-09-30 11:46:30.701698;gpt-oss:120b-cloud;analizziamo i dati di Orangina nel periodo più recente, ovvero dal 22 al 28 settembre nella tabella micromissioni;interpretazione_domanda.txt;586;3;589;anali;True
+2025-09-30 11:46:33.536575;gpt-oss:120b-cloud;analizziamo i dati di Orangina nel periodo più recente, ovvero dal 22 al 28 settembre nella tabella micromissioni;crea_query.txt;3394;73;3467;SELEC;True
+2025-09-30 11:46:43.370659;gpt-oss:120b-cloud;analizziamo i dati di Orangina nel periodo più recente, ovvero dal 22 al 28 settembre nella tabella micromissioni;analytical;1999;2109;4108;**Ana;True
+2025-09-30 11:48:14.775080;gpt-oss:120b-cloud;benissimo ora proviamo a fare una join con allarmi così da vedere che le missioni non andate a buon fine che errore hanno dato in tabella allarmi, ricordo di sfruttare la tabella associazioni;interpretazione_domanda.txt;2366;3;2369;anali;True
+2025-09-30 11:48:22.665448;gpt-oss:120b-cloud;benissimo ora proviamo a fare una join con allarmi così da vedere che le missioni non andate a buon fine che errore hanno dato in tabella allarmi, ricordo di sfruttare la tabella associazioni;crea_query.txt;5174;189;5363;SELEC;True
+2025-09-30 11:48:38.567754;gpt-oss:120b-cloud;benissimo ora proviamo a fare una join con allarmi così da vedere che le missioni non andate a buon fine che errore hanno dato in tabella allarmi, ricordo di sfruttare la tabella associazioni;analytical;3232;1844;5076;**Ris;True
+2025-09-30 11:49:58.174168;gpt-oss:120b-cloud;riferiamoci alla macchina 7S0407 e alla 7N0407;interpretazione_domanda.txt;3362;3;3365;anali;True
+2025-09-30 11:50:07.883374;gpt-oss:120b-cloud;riferiamoci alla macchina 7S0407 e alla 7N0407;crea_query.txt;6170;207;6377;SELEC;True
+2025-09-30 11:50:29.911412;gpt-oss:120b-cloud;riferiamoci alla macchina 7S0407 e alla 7N0407;analytical;4246;1690;5936;**Ana;True
+2025-09-30 11:51:24.253050;gpt-oss:120b-cloud;attenzione il periodo devi farlo sulla settimana dal 22 al 28 09;interpretazione_domanda.txt;2845;3;2848;anali;True
+2025-09-30 11:51:34.959593;gpt-oss:120b-cloud;attenzione il periodo devi farlo sulla settimana dal 22 al 28 09;crea_query.txt;5654;240;5894;SELEC;True
+2025-09-30 11:51:44.337334;gpt-oss:120b-cloud;attenzione il periodo devi farlo sulla settimana dal 22 al 28 09;analytical;3731;1674;5405;**Rep;True
+2025-09-30 11:53:38.526964;gpt-oss:120b-cloud;ma come è possibile scusa... dammi tutti i codici scattati nella tabella allarmi ;interpretazione_domanda.txt;2830;3;2833;anali;True
+2025-09-30 11:53:41.034719;gpt-oss:120b-cloud;ma come è possibile scusa... dammi tutti i codici scattati nella tabella allarmi ;crea_query.txt;5638;12;5650;SELEC;True
+2025-09-30 11:53:45.734628;gpt-oss:120b-cloud;ma come è possibile scusa... dammi tutti i codici scattati nella tabella allarmi ;analytical;2647;623;3270;**Ris;True
+2025-09-30 11:54:14.418269;gpt-oss:120b-cloud;con commessa Orangina e periodo temporale 22- 28 settembre;interpretazione_domanda.txt;1747;3;1750;anali;True
+2025-09-30 11:54:18.409722;gpt-oss:120b-cloud;con commessa Orangina e periodo temporale 22- 28 settembre;crea_query.txt;4555;165;4720;SELEC;True
+2025-09-30 11:54:41.367315;gpt-oss:120b-cloud;con commessa Orangina e periodo temporale 22- 28 settembre scrivi bene Commessa, hai scritto sbagliato;interpretazione_domanda.txt;739;3;742;anali;True
+2025-09-30 11:54:45.821916;gpt-oss:120b-cloud;con commessa Orangina e periodo temporale 22- 28 settembre scrivi bene Commessa, hai scritto sbagliato;crea_query.txt;3547;160;3707;SELEC;True
+2025-09-30 11:54:52.862351;gpt-oss:120b-cloud;con commessa Orangina e periodo temporale 22- 28 settembre scrivi bene Commessa, hai scritto sbagliato;analytical;2882;1503;4385;**Ris;True
+2025-09-30 11:55:34.175655;gpt-oss:120b-cloud;i valori distinti cazzo;interpretazione_domanda.txt;3036;3;3039;anali;True
+2025-09-30 11:55:39.085653;gpt-oss:120b-cloud;i valori distinti cazzo;crea_query.txt;5844;91;5935;SELEC;True
+2025-09-30 11:55:45.784695;gpt-oss:120b-cloud;i valori distinti cazzo;analytical;3199;1440;4639;**Ana;True
+2025-09-30 11:57:36.206942;gpt-oss:120b-cloud;voglio i valori distinti colonna Codice di commessa Orangina, dalla data 22 09 al 28 09;interpretazione_domanda.txt;3330;3;3333;anali;True
+2025-09-30 11:58:07.098492;gpt-oss:120b-cloud;voglio i valori distinti colonna Codice di commessa Orangina, dalla data 22 09 al 28 09;interpretazione_domanda.txt;380;3;383;anali;True
+2025-09-30 11:58:12.787384;gpt-oss:120b-cloud;voglio i valori distinti colonna Codice di commessa Orangina, dalla data 22 09 al 28 09;crea_query.txt;3187;61;3248;SELEC;True
+2025-09-30 11:58:14.274452;gpt-oss:120b-cloud;voglio i valori distinti colonna Codice di commessa Orangina, dalla data 22 09 al 28 09;analytical;171;189;360;Genti;True
+2025-09-30 11:58:49.833692;gpt-oss:120b-cloud;bene ora voglio sapere a quali missione sono collegati e quindi a quale macchina;interpretazione_domanda.txt;471;3;474;anali;True
+2025-09-30 11:58:54.989048;gpt-oss:120b-cloud;bene ora voglio sapere a quali missione sono collegati e quindi a quale macchina;crea_query.txt;3278;49;3327;SELEC;True
+2025-09-30 11:59:03.160692;gpt-oss:120b-cloud;bene ora voglio sapere a quali missione sono collegati e quindi a quale macchina;analytical;350;543;893;**Ris;True
+2025-09-30 12:00:09.416418;gpt-oss:120b-cloud;attenzione nalla tabella allarmi in quel periodo che macchine sono coinvolte?;interpretazione_domanda.txt;650;3;653;anali;True
+2025-09-30 12:00:13.690773;gpt-oss:120b-cloud;attenzione nalla tabella allarmi in quel periodo che macchine sono coinvolte?;crea_query.txt;3459;65;3524;SELEC;True
+2025-09-30 12:00:20.549025;gpt-oss:120b-cloud;attenzione nalla tabella allarmi in quel periodo che macchine sono coinvolte?;analytical;420;417;837;**Ris;True
+2025-09-30 12:00:56.746772;gpt-oss:120b-cloud;quindi ogni allarme su questa macchina a che missioni è coinvolta;interpretazione_domanda.txt;636;3;639;anali;True
+2025-09-30 12:01:04.350007;gpt-oss:120b-cloud;quindi ogni allarme su questa macchina a che missioni è coinvolta;crea_query.txt;3443;119;3562;SELEC;True
+2025-09-30 12:02:07.355268;gpt-oss:120b-cloud;la data inizio e fine sono sempre 22 sett e 28 sett;interpretazione_domanda.txt;616;3;619;anali;True
+2025-09-30 12:02:18.466483;gpt-oss:120b-cloud;la data inizio e fine sono sempre 22 sett e 28 sett;crea_query.txt;3424;144;3568;SELEC;True
+2025-09-30 12:02:40.456944;gpt-oss:120b-cloud;la data inizio e fine sono sempre 22 sett e 28 sett;analytical;472;1859;2331;**Ana;True
+2025-09-30 12:04:21.013759;gpt-oss:120b-cloud;ma data ora inizio è fine non ci devono essere;interpretazione_domanda.txt;678;3;681;anali;True
+2025-09-30 12:04:29.723747;gpt-oss:120b-cloud;ma data ora inizio è fine non ci devono essere;crea_query.txt;3486;131;3617;SELEC;True
+2025-09-30 12:04:38.183350;gpt-oss:120b-cloud;ma data ora inizio è fine non ci devono essere;analytical;1147;1587;2734;**Ris;True
+2025-09-30 12:05:14.216452;gpt-oss:120b-cloud;ok fammi una associazione!!;interpretazione_domanda.txt;1281;3;1284;anali;True
+2025-09-30 12:05:17.028715;gpt-oss:120b-cloud;ok fammi una associazione!!;crea_query.txt;4088;10;4098;SELEC;True
+2025-09-30 12:05:24.009623;gpt-oss:120b-cloud;ok fammi una associazione!!;analytical;1192;1491;2683;**Ris;True
+2025-09-30 12:05:43.407465;gpt-oss:120b-cloud;associa missioni e allarmi!!;interpretazione_domanda.txt;1318;3;1321;anali;True
+2025-09-30 12:05:49.709768;gpt-oss:120b-cloud;associa missioni e allarmi!!;crea_query.txt;4125;131;4256;SELEC;True
+2025-09-30 12:06:11.301614;gpt-oss:120b-cloud;associa missioni e allarmi!!;analytical;1175;1609;2784;**Ris;True
+2025-09-30 12:06:48.969220;gpt-oss:120b-cloud;ci credo che è vuoto cazzo!!;interpretazione_domanda.txt;695;2;697;gener;True
+2025-09-30 12:06:59.847403;gpt-oss:120b-cloud;ci credo che è vuoto cazzo!!;risposta_generica.txt;922;1986;2908;**Eur;True
+2025-09-30 12:09:16.842693;gpt-oss:120b-cloud;contami i valori presenti in orangina;interpretazione_domanda.txt;341;3;344;anali;True
+2025-09-30 12:09:20.355769;gpt-oss:120b-cloud;contami i valori presenti in orangina;crea_query.txt;3149;37;3186;SELEC;True
+2025-09-30 12:09:22.312373;gpt-oss:120b-cloud;contami i valori presenti in orangina;analytical;123;189;312;Buong;True
+2025-09-30 12:10:17.876209;gpt-oss:120b-cloud;benissimo invece sempre orangina ma allarmi;interpretazione_domanda.txt;408;3;411;anali;True
+2025-09-30 12:10:22.186847;gpt-oss:120b-cloud;benissimo invece sempre orangina ma allarmi;crea_query.txt;3216;37;3253;SELEC;True
+2025-09-30 12:10:24.064438;gpt-oss:120b-cloud;benissimo invece sempre orangina ma allarmi;analytical;188;130;318;Buong;True
+2025-09-30 12:10:47.661277;gpt-oss:120b-cloud;perfetto riesci a dirmi i periodi temporali?;interpretazione_domanda.txt;475;3;478;anali;True
+2025-09-30 12:10:55.215591;gpt-oss:120b-cloud;perfetto riesci a dirmi i periodi temporali?;crea_query.txt;3283;206;3489;SELEC;True
+2025-09-30 12:11:02.598444;gpt-oss:120b-cloud;perfetto riesci a dirmi i periodi temporali?;analytical;489;510;999;**Per;True
+2025-09-30 12:11:54.647989;gpt-oss:120b-cloud;prendimi i giorni distinti e confrontameli tra lor per vedere se hanno tutti e due lo stesso numero di giorni;interpretazione_domanda.txt;749;3;752;anali;True
+2025-09-30 12:12:03.097334;gpt-oss:120b-cloud;prendimi i giorni distinti e confrontameli tra lor per vedere se hanno tutti e due lo stesso numero di giorni;crea_query.txt;3557;115;3672;SELEC;True
+2025-09-30 12:12:09.106238;gpt-oss:120b-cloud;prendimi i giorni distinti e confrontameli tra lor per vedere se hanno tutti e due lo stesso numero di giorni;analytical;583;550;1133;**Ris;True
+2025-09-30 12:12:34.860274;gpt-oss:120b-cloud;ok dammi i giorni distinti allora;interpretazione_domanda.txt;813;3;816;anali;True
+2025-09-30 12:12:37.839200;gpt-oss:120b-cloud;ok dammi i giorni distinti allora;crea_query.txt;3621;56;3677;SELEC;True
+2025-09-30 12:12:42.103770;gpt-oss:120b-cloud;ok dammi i giorni distinti allora;analytical;1001;751;1752;**Gio;True
+2025-09-30 12:12:59.808115;gpt-oss:120b-cloud;attenzione sempre solo orangina;interpretazione_domanda.txt;977;2;979;gener;True
+2025-09-30 12:13:07.793452;gpt-oss:120b-cloud;attenzione sempre solo orangina;risposta_generica.txt;1206;1709;2915;**Eur;True
+2025-09-30 12:13:35.065827;gpt-oss:120b-cloud;attenzione sempre solo orangina i giorni distinti;interpretazione_domanda.txt;968;3;971;anali;True
+2025-09-30 12:13:38.089222;gpt-oss:120b-cloud;attenzione sempre solo orangina i giorni distinti;crea_query.txt;3777;94;3871;SELEC;True
+2025-09-30 12:13:43.409945;gpt-oss:120b-cloud;attenzione sempre solo orangina i giorni distinti;analytical;755;331;1086;**Ris;True
+2025-09-30 12:14:13.183921;gpt-oss:120b-cloud;ok prendiamo il range temporale dal 22 al 26 e fammi un'analisi su micromissioni;interpretazione_domanda.txt;1053;3;1056;anali;True
+2025-09-30 12:14:17.010959;gpt-oss:120b-cloud;ok prendiamo il range temporale dal 22 al 26 e fammi un'analisi su micromissioni;crea_query.txt;3861;165;4026;SELEC;True
+2025-09-30 12:14:24.868908;gpt-oss:120b-cloud;ok prendiamo il range temporale dal 22 al 26 e fammi un'analisi su micromissioni;analytical;603;1179;1782;**Ana;True
+2025-09-30 12:15:16.672776;gpt-oss:120b-cloud;ok solo sulle macchine che finiscono con 407;interpretazione_domanda.txt;879;3;882;anali;True
+2025-09-30 12:15:20.462213;gpt-oss:120b-cloud;ok solo sulle macchine che finiscono con 407;crea_query.txt;3687;175;3862;SELEC;True
+2025-09-30 12:15:28.597074;gpt-oss:120b-cloud;ok solo sulle macchine che finiscono con 407;analytical;907;871;1778;**Ana;True
+2025-09-30 12:16:05.281790;gpt-oss:120b-cloud;ok ma suddividilo per macchina;interpretazione_domanda.txt;1001;3;1004;anali;True
+2025-09-30 12:16:09.259623;gpt-oss:120b-cloud;ok ma suddividilo per macchina;crea_query.txt;3809;175;3984;SELEC;True
+2025-09-30 12:16:13.815428;gpt-oss:120b-cloud;ok ma suddividilo per macchina;analytical;927;663;1590;**Ana;True
+2025-09-30 12:17:48.549926;gpt-oss:120b-cloud;devi dirmi gli errori che son successi su quale macchina e su quale tipo di missione tutto in termini %;interpretazione_domanda.txt;940;3;943;anali;True
+2025-09-30 12:17:54.352620;gpt-oss:120b-cloud;devi dirmi gli errori che son successi su quale macchina e su quale tipo di missione tutto in termini %;crea_query.txt;3747;109;3856;SELEC;True
+2025-09-30 12:18:02.510851;gpt-oss:120b-cloud;devi dirmi gli errori che son successi su quale macchina e su quale tipo di missione tutto in termini %;analytical;1019;1086;2105;**Rep;True
+2025-09-30 12:18:20.412681;gpt-oss:120b-cloud;sempre su quelle 2 macchine che ti ho detto prima;interpretazione_domanda.txt;995;3;998;anali;True
+2025-09-30 12:18:25.371946;gpt-oss:120b-cloud;sempre su quelle 2 macchine che ti ho detto prima;crea_query.txt;3801;122;3923;SELEC;True
+2025-09-30 12:18:35.317534;gpt-oss:120b-cloud;sempre su quelle 2 macchine che ti ho detto prima;analytical;1228;1225;2453;**Ana;True
+2025-09-30 12:19:11.875193;gpt-oss:120b-cloud;sempre su orangina e in quel lasso di tempo e su quelle 2 macchine;interpretazione_domanda.txt;1306;3;1309;anali;True
+2025-09-30 12:19:16.827797;gpt-oss:120b-cloud;sempre su orangina e in quel lasso di tempo e su quelle 2 macchine;crea_query.txt;4112;189;4301;SELEC;True
+2025-09-30 12:19:22.272020;gpt-oss:120b-cloud;sempre su orangina e in quel lasso di tempo e su quelle 2 macchine;analytical;1195;856;2051;**Ris;True
+2025-09-30 12:20:10.969408;gpt-oss:120b-cloud;devi dirmi gli errori che son successi su quale macchina e su quale tipo di missione tutto in termini % su orangina, su macchine 407 ;interpretazione_domanda.txt;1149;3;1152;anali;True
+2025-09-30 12:20:14.868249;gpt-oss:120b-cloud;devi dirmi gli errori che son successi su quale macchina e su quale tipo di missione tutto in termini % su orangina, su macchine 407 ;crea_query.txt;3957;164;4121;SELEC;True
+2025-09-30 12:20:26.917510;gpt-oss:120b-cloud;devi dirmi gli errori che son successi su quale macchina e su quale tipo di missione tutto in termini % su orangina, su macchine 407 ;analytical;1398;1116;2514;**Rep;True
+2025-09-30 12:20:50.826805;gpt-oss:120b-cloud;eok aggiungi il filtro sulla data dal 22 al 29 sette;interpretazione_domanda.txt;1173;3;1176;anali;True
+2025-09-30 12:20:54.193790;gpt-oss:120b-cloud;eok aggiungi il filtro sulla data dal 22 al 29 sette;crea_query.txt;3981;190;4171;SELEC;True
+2025-09-30 12:20:59.261287;gpt-oss:120b-cloud;eok aggiungi il filtro sulla data dal 22 al 29 sette;analytical;1076;1011;2087;**Ana;True
+2025-09-30 12:21:11.279837;gpt-oss:120b-cloud;ma porca troia 29 settembre;interpretazione_domanda.txt;1160;2;1162;gener;True
+2025-09-30 12:21:18.808412;gpt-oss:120b-cloud;ma porca troia 29 settembre;risposta_generica.txt;1388;1559;2947;**Che;True
+2025-09-30 12:22:08.578371;gpt-oss:120b-cloud;devi dirmi gli errori che son successi su quale macchina e su quale tipo di missione tutto in termini % su orangina, su macchine 407 tra la data 22 e 28 09 2025;interpretazione_domanda.txt;1213;3;1216;anali;True
+2025-09-30 12:22:12.694047;gpt-oss:120b-cloud;devi dirmi gli errori che son successi su quale macchina e su quale tipo di missione tutto in termini % su orangina, su macchine 407 tra la data 22 e 28 09 2025;crea_query.txt;4021;189;4210;SELEC;True
+2025-09-30 12:22:22.476890;gpt-oss:120b-cloud;devi dirmi gli errori che son successi su quale macchina e su quale tipo di missione tutto in termini % su orangina, su macchine 407 tra la data 22 e 28 09 2025;analytical;931;1639;2570;**Ana;True
+2025-09-30 12:23:50.902328;gpt-oss:120b-cloud;i disable o anable battery avvengono dopo degli errori in cui le macchine stanno ferme per tanto tempo?;interpretazione_domanda.txt;1224;3;1227;anali;True
+2025-09-30 12:23:56.628707;gpt-oss:120b-cloud;i disable o anable battery avvengono dopo degli errori in cui le macchine stanno ferme per tanto tempo?;crea_query.txt;4032;186;4218;SELEC;True
+2025-09-30 12:24:12.363991;gpt-oss:120b-cloud;i disable o anable battery avvengono dopo degli errori in cui le macchine stanno ferme per tanto tempo?;analytical;1414;1212;2626;**Ris;True
+2025-09-30 14:55:41.836119;gpt-oss:120b-cloud;nella giornata del 26/09/2025 sulle macchine 407 in Orangina esaminami e dimmi la quantità di volte che la macchina va in errore Alarm Hardware e dopo attiva la ricarica con missione di Enable battery;interpretazione_domanda.txt;733;3;736;anali;True
+2025-09-30 14:55:48.950091;gpt-oss:120b-cloud;nella giornata del 26/09/2025 sulle macchine 407 in Orangina esaminami e dimmi la quantità di volte che la macchina va in errore Alarm Hardware e dopo attiva la ricarica con missione di Enable battery;crea_query.txt;3539;200;3739;SELEC;True
+2025-09-30 14:55:54.422325;gpt-oss:120b-cloud;nella giornata del 26/09/2025 sulle macchine 407 in Orangina esaminami e dimmi la quantità di volte che la macchina va in errore Alarm Hardware e dopo attiva la ricarica con missione di Enable battery;analytical;630;688;1318;**Ris;True
+2025-09-30 14:57:51.943599;gpt-oss:120b-cloud;quindi 27 volte è successo si puo sapere la percentuale di batteria in ognuno di questi casi e in confronto ai casi in cui non è stata attivata la batteria quanto è?;interpretazione_domanda.txt;980;3;983;anali;True
+2025-09-30 14:57:57.376771;gpt-oss:120b-cloud;quindi 27 volte è successo si puo sapere la percentuale di batteria in ognuno di questi casi e in confronto ai casi in cui non è stata attivata la batteria quanto è?;crea_query.txt;3786;162;3948;SELEC;True
+2025-09-30 14:58:02.588707;gpt-oss:120b-cloud;quindi 27 volte è successo si puo sapere la percentuale di batteria in ognuno di questi casi e in confronto ai casi in cui non è stata attivata la batteria quanto è?;analytical;863;751;1614;**Ris;True
+2025-09-30 15:06:09.758601;gpt-oss:120b-cloud;nella giornata del 26/09/2025 sulle macchine 407 in Orangina esaminami e dimmi la quantità di volte che la macchina va in errore Alarm Hardware e dopo attiva la ricarica con missione di Enable battery e la quantità invece che non va ad attivare la ricarica;interpretazione_domanda.txt;1271;3;1274;anali;True
+2025-09-30 15:06:15.847304;gpt-oss:120b-cloud;nella giornata del 26/09/2025 sulle macchine 407 in Orangina esaminami e dimmi la quantità di volte che la macchina va in errore Alarm Hardware e dopo attiva la ricarica con missione di Enable battery e la quantità invece che non va ad attivare la ricarica;crea_query.txt;4077;410;4487;SELEC;True
+2025-09-30 15:06:24.447255;gpt-oss:120b-cloud;nella giornata del 26/09/2025 sulle macchine 407 in Orangina esaminami e dimmi la quantità di volte che la macchina va in errore Alarm Hardware e dopo attiva la ricarica con missione di Enable battery e la quantità invece che non va ad attivare la ricarica;analytical;1367;845;2212;**Ana;True
+2025-09-30 15:10:41.217647;gpt-oss:120b-cloud;ok dammi le ore di questi;interpretazione_domanda.txt;1642;3;1645;anali;True
+2025-09-30 15:10:51.761540;gpt-oss:120b-cloud;ok dammi le ore di questi;crea_query.txt;4449;436;4885;SELEC;True
+2025-09-30 15:11:08.016166;gpt-oss:120b-cloud;ok dammi le ore di questi;analytical;2019;974;2993;**Ana;True
+2025-09-30 15:13:55.292392;gpt-oss:120b-cloud;non darmi l'ora e la differenza di tempo in maniera approssimativa;interpretazione_domanda.txt;2318;3;2321;anali;True
+2025-09-30 15:14:03.475410;gpt-oss:120b-cloud;non darmi l'ora e la differenza di tempo in maniera approssimativa;crea_query.txt;5125;474;5599;SELEC;True
+2025-09-30 15:14:13.413917;gpt-oss:120b-cloud;non darmi l'ora e la differenza di tempo in maniera approssimativa;analytical;3038;1008;4046;**Ana;True
+2025-10-01 09:24:07.918068;gpt-oss:120b-cloud;che dati sono presenti nel tuo db collegato ;interpretazione_domanda.txt;341;3;344;anali;True
+2025-10-01 09:24:11.655351;gpt-oss:120b-cloud;che dati sono presenti nel tuo db collegato ;crea_query.txt;3148;18;3166;SELEC;True
+2025-10-01 09:24:17.744508;gpt-oss:120b-cloud;che dati sono presenti nel tuo db collegato ;analytical;269;1037;1306;**Pan;True
+2025-10-01 14:23:02.652635;gpt-oss:120b-cloud;che dati sono presenti nel tuo db collegato ;interpretazione_domanda.txt;550;3;553;anali;True
+2025-10-01 14:23:05.895931;gpt-oss:120b-cloud;che dati sono presenti nel tuo db collegato ;crea_query.txt;4205;18;4223;SELEC;True
+2025-10-01 14:23:09.830368;gpt-oss:120b-cloud;che dati sono presenti nel tuo db collegato ;analytical;478;833;1311;**Ris;True
+2025-10-01 14:24:46.044157;gpt-oss:120b-cloud;fammi un'associazione tra allarmi e micromissioni sulla commessa Orangina nel period della ultima settimana disponibile 22/09/2025 al 28;interpretazione_domanda.txt;824;3;827;anali;True
+2025-10-01 14:24:53.502489;gpt-oss:120b-cloud;fammi un'associazione tra allarmi e micromissioni sulla commessa Orangina nel period della ultima settimana disponibile 22/09/2025 al 28;crea_query.txt;4478;213;4691;SELEC;True
+2025-10-01 14:27:38.576845;gpt-oss:120b-cloud;fai associazione tra missioni e allarmi su orangina commessa 1 sulla macchina satellite 407 nella giornata del 26 09 2025;interpretazione_domanda.txt;393;3;396;anali;True
+2025-10-01 14:27:48.184228;gpt-oss:120b-cloud;fai associazione tra missioni e allarmi su orangina commessa 1 sulla macchina satellite 407 nella giornata del 26 09 2025;crea_query.txt;4049;290;4339;SELEC;True
+2025-10-01 14:27:59.422394;gpt-oss:120b-cloud;fai associazione tra missioni e allarmi su orangina commessa 1 sulla macchina satellite 407 nella giornata del 26 09 2025;analytical;2126;2066;4192;**Ass;True
+2025-10-01 14:31:44.622774;gpt-oss:120b-cloud;vorrei capire se questi errori da cosa son dovuti e quindi cercare nell'asso temporale prima e dopo ognuno di essi se succede un qualcosa di ricorrente;interpretazione_domanda.txt;2469;3;2472;anali;True
+2025-10-01 14:31:50.562168;gpt-oss:120b-cloud;vorrei capire se questi errori da cosa son dovuti e quindi cercare nell'asso temporale prima e dopo ognuno di essi se succede un qualcosa di ricorrente;crea_query.txt;6125;321;6446;SELEC;True
+2025-10-01 14:32:13.995749;gpt-oss:120b-cloud;vorrei capire se questi errori da cosa son dovuti e quindi cercare nell'asso temporale prima e dopo ognuno di essi se succede un qualcosa di ricorrente;analytical;8863;4139;13002;## 1.;True
+2025-10-01 14:35:42.437518;gpt-oss:120b-cloud;l'interpretazione dei pattern ci sta però non capisco i codici ;interpretazione_domanda.txt;9156;2;9158;gener;True
+2025-10-01 14:35:52.377395;gpt-oss:120b-cloud;l'interpretazione dei pattern ci sta però non capisco i codici ;risposta_generica.txt;9384;2110;11494;**Eur;True
+2025-10-01 14:37:19.124507;gpt-oss:120b-cloud;vorrei capire se questi errori da cosa son dovuti e quindi cercare nell'asso temporale prima e dopo ognuno di essi se succede un qualcosa di ricorrente, usa parole non codici se no non capisco a cosa ti riferisci;interpretazione_domanda.txt;9260;3;9263;anali;True
+2025-10-01 14:37:24.812946;gpt-oss:120b-cloud;vorrei capire se questi errori da cosa son dovuti e quindi cercare nell'asso temporale prima e dopo ognuno di essi se succede un qualcosa di ricorrente, usa parole non codici se no non capisco a cosa ti riferisci;crea_query.txt;12916;302;13218;SELEC;True
+2025-10-01 14:37:57.102387;gpt-oss:120b-cloud;vorrei capire se questi errori da cosa son dovuti e quindi cercare nell'asso temporale prima e dopo ognuno di essi se succede un qualcosa di ricorrente, usa parole non codici se no non capisco a cosa ti riferisci;analytical;15440;2636;18076;**Che;True
+2025-10-01 14:41:29.243476;gpt-oss:120b-cloud;show the number of missions for each mission type and machine where a specific error code occurred. fallo inner con allarmi così vediamo dal tipo di missione sulla macchina 407 che allarme scatta;interpretazione_domanda.txt;15787;3;15790;anali;True
+2025-10-01 14:41:38.945426;gpt-oss:120b-cloud;show the number of missions for each mission type and machine where a specific error code occurred. fallo inner con allarmi così vediamo dal tipo di missione sulla macchina 407 che allarme scatta;crea_query.txt;19443;224;19667;SELEC;True
+2025-10-01 14:41:49.659207;gpt-oss:120b-cloud;show the number of missions for each mission type and machine where a specific error code occurred. fallo inner con allarmi così vediamo dal tipo di missione sulla macchina 407 che allarme scatta;analytical;16049;1703;17752;**Ana;True
+2025-10-01 14:43:17.156230;gpt-oss:120b-cloud;show the number of missions for each mission type and machine where a specific error code occurred. fallo inner con allarmi così vediamo dal tipo di missione sulla macchina 407 che allarme scatta, analizza per alarm description se no non si capisce;interpretazione_domanda.txt;16420;3;16423;anali;True
+2025-10-01 14:43:27.107102;gpt-oss:120b-cloud;show the number of missions for each mission type and machine where a specific error code occurred. fallo inner con allarmi così vediamo dal tipo di missione sulla macchina 407 che allarme scatta, analizza per alarm description se no non si capisce;crea_query.txt;20076;263;20339;SELEC;True
+2025-10-01 14:43:41.673177;gpt-oss:120b-cloud;show the number of missions for each mission type and machine where a specific error code occurred. fallo inner con allarmi così vediamo dal tipo di missione sulla macchina 407 che allarme scatta, analizza per alarm description se no non si capisce;analytical;16379;1937;18316;**Ris;True
+2025-10-01 14:45:39.406675;gpt-oss:120b-cloud;show the number of missions for each mission type and machine where a specific error code occurred. fallo inner con allarmi così vediamo dal tipo di missione sulla macchina 407 che allarme scatta, analizza per alarm description e non per codice;interpretazione_domanda.txt;16748;3;16751;anali;True
+2025-10-01 14:45:46.403317;gpt-oss:120b-cloud;show the number of missions for each mission type and machine where a specific error code occurred. fallo inner con allarmi così vediamo dal tipo di missione sulla macchina 407 che allarme scatta, analizza per alarm description e non per codice;crea_query.txt;20404;222;20626;SELEC;True
+2025-10-01 14:45:59.121471;gpt-oss:120b-cloud;show the number of missions for each mission type and machine where a specific error code occurred. fallo inner con allarmi così vediamo dal tipo di missione sulla macchina 407 che allarme scatta, analizza per alarm description e non per codice;analytical;17090;1877;18967;**Ana;True
+2025-10-01 14:46:47.354738;gpt-oss:120b-cloud;fai questo su periodo dal 22 al 28 settembre 2025;interpretazione_domanda.txt;17385;3;17388;anali;True
+2025-10-01 14:46:53.166932;gpt-oss:120b-cloud;fai questo su periodo dal 22 al 28 settembre 2025;crea_query.txt;21041;250;21291;SELEC;True
+2025-10-01 14:47:05.970711;gpt-oss:120b-cloud;fai questo su periodo dal 22 al 28 settembre 2025;analytical;17508;1428;18936;**Ana;True

@@ -7,7 +7,7 @@ import mysql.connector
 # ===============================
 # FUNZIONI DI SUPPORTO
 # ===============================
-def get_distinct_values():
+def get_distinct_values_missions():
     distinct_values = {}
     cursor.execute("SELECT DISTINCT Macchina FROM MicroMissioni")
     distinct_values['macchine'] = [row[0] for row in cursor.fetchall()]
@@ -23,16 +23,86 @@ def get_distinct_values():
 
     return distinct_values
 
+def get_distinct_values_alarms():
+    distinct_values = {}
+    cursor.execute("SELECT DISTINCT Codice FROM Allarmi")
+    distinct_values['codici'] = [row[0] for row in cursor.fetchall()]
+
+    cursor.execute("SELECT DISTINCT Descrizione FROM Allarmi")
+    distinct_values['descrizioni'] = [row[0] for row in cursor.fetchall()]
+
+    cursor.execute("SELECT DISTINCT Tipo FROM Allarmi")
+    distinct_values['tipi'] = [row[0] for row in cursor.fetchall()]
+
+    cursor.execute("DESCRIBE Allarmi")
+    distinct_values['campi'] = [row[0] for row in cursor.fetchall()]
+
+    return distinct_values
+
+def get_distinct_values_associations():
+    distinct_values = {}
+    cursor.execute("SELECT DISTINCT Tipo_Macchina FROM Associazioni")
+    distinct_values['tipi_macchina'] = [row[0] for row in cursor.fetchall()]
+
+    cursor.execute("SELECT DISTINCT Tipo_Allarme FROM Associazioni")
+    distinct_values['tipi_allarme'] = [row[0] for row in cursor.fetchall()]
+
+    cursor.execute("SELECT DISTINCT Allarme FROM Associazioni")
+    distinct_values['allarmi'] = [row[0] for row in cursor.fetchall()]
+
+    cursor.execute("DESCRIBE Associazioni")
+    distinct_values['campi'] = [row[0] for row in cursor.fetchall()]
+
+    return distinct_values
+
+def get_distinct_values_commesse():
+    distinct_values = {}
+    cursor.execute("SELECT DISTINCT Nome FROM Commesse")
+    distinct_values['nomi'] = [row[0] for row in cursor.fetchall()]
+
+    cursor.execute("DESCRIBE Commesse")
+    distinct_values['campi'] = [row[0] for row in cursor.fetchall()]
+
+    return distinct_values
+
 def safe_values(values):
     return [v if v is not None else "N/A" for v in values]
 
-def get_text_distinct_values():
-    vals = get_distinct_values()
+def get_text_distinct_values_missions():
+    vals = get_distinct_values_missions()
     return f"""
     Valori attuali dei vari campi nel database da usare per query e clausole WHERE:
     - Macchine: {', '.join(safe_values(vals['macchine']))}
     - Tipi: {', '.join(safe_values(vals['tipi']))}
     - Risultati: {', '.join(safe_values(vals['risultati']))}
+    - Schema Tabella campi disponibili: {', '.join(safe_values(vals['campi']))}
+    """
+
+def get_text_distinct_values_alarms():
+    vals = get_distinct_values_alarms()
+    return f"""
+    Valori attuali dei vari campi nel database da usare per query e clausole WHERE:
+    - Macchine: {', '.join(safe_values(vals['codici']))}
+    - Descrizioni: {', '.join(safe_values(vals['descrizioni']))}
+    - Tipi: {', '.join(safe_values(vals['tipi']))}
+    - Schema Tabella campi disponibili: {', '.join(safe_values(vals['campi']))}
+    """
+
+def get_text_distinct_values_associations():
+    vals = get_distinct_values_associations()
+    return f"""
+    Valori attuali dei vari campi nel database da usare per query e clausole WHERE:
+    - Tipi di Macchine: {', '.join(safe_values(vals['tipi_macchina']))}
+    - Tipi di Allarme: {', '.join(safe_values(vals['tipi_allarme']))}
+    - Allarmi: {', '.join(safe_values(vals['allarmi']))}
+    - Schema Tabella campi disponibili: {', '.join(safe_values(vals['campi']))}
+    """
+
+def get_text_distinct_values_commesse():
+    vals = get_distinct_values_commesse()
+    return f"""
+    Valori attuali dei vari campi nel database da usare per query e clausole WHERE:
+    - Nome commesse: {', '.join(safe_values(vals['nomi']))}
     - Schema Tabella campi disponibili: {', '.join(safe_values(vals['campi']))}
     """
 
@@ -112,9 +182,9 @@ def identify_question_type(user_question: str) -> str:
     prompt_text = (
         get_model_prompt("interpretazione_domanda.txt")
         .replace("{question}", user_question)
-        .replace("{history}", "\n".join(conversation_history[-5:]))
+        .replace("{history}", "\n".join(conversation_history))
     )
-    resp = agente_identificatore.invoke({"question": user_question, "history": "".join(conversation_history[-5:])}).content.strip().lower()
+    resp = agente_identificatore.invoke({"question": user_question, "history": "".join(conversation_history)}).content.strip().lower()
     log_model_call(resp, model_name, "interpretazione_domanda.txt", user_question, prompt_text)
     return resp
 
@@ -122,24 +192,27 @@ def generate_generic_response(user_question: str) -> str:
     prompt_text = (
         get_model_prompt("risposta_generica.txt")
         .replace("{question}", user_question)
-        .replace("{history}", "\n".join(conversation_history[-5:]))
+        .replace("{history}", "\n".join(conversation_history))
     )
-    resp = agente_generico.invoke({"question": user_question, "history": "".join(conversation_history[-5:])}).content.strip()
+    resp = agente_generico.invoke({"question": user_question, "history": "".join(conversation_history)}).content.strip()
     log_model_call(resp, model_name, "risposta_generica.txt", user_question, prompt_text)
     return resp
 
 def generate_query(user_question: str) -> str:
     prompt_data = f"""
-    {get_text_distinct_values()}
+    Distinct Values of MicroMissioni: {get_text_distinct_values_missions()}
+    Distinct Values of Allarmi: {get_text_distinct_values_alarms()}
+    Distinct values of Associazioni: {get_text_distinct_values_associations()}
+    Distinct values of Commesse: {get_text_distinct_values_commesse()}
     Domanda: {user_question}
-    Genera una query SQL compatibile con SQLite per rispondere.
+    Genera una query SQL per rispondere.
     """
     prompt_text = (
         get_model_prompt("crea_query.txt")
         .replace("{question}", prompt_data)
-        .replace("{history}", "\n".join(conversation_history[-5:]))
+        .replace("{history}", "\n".join(conversation_history))
     )
-    resp = agente_crea_query.invoke({"question": prompt_data, "history": "".join(conversation_history[-5:])}).content.strip()
+    resp = agente_crea_query.invoke({"question": prompt_data, "history": "".join(conversation_history)}).content.strip()
     log_model_call(resp, model_name, "crea_query.txt", user_question, prompt_text)
     return resp
 
@@ -156,9 +229,9 @@ def analytical_response(user_question: str, results) -> str:
         get_model_prompt("risposta_analitica.txt")
         .replace("{question}", user_question)
         .replace("{results}", results_text)
-        .replace("{history}", "\n".join(conversation_history[-5:]))
+        .replace("{history}", "\n".join(conversation_history))
     )
-    resp = agente_analitico.invoke({"domanda": user_question, "risultati": results_text, "history": "".join(conversation_history[-5:])}).content.strip()
+    resp = agente_analitico.invoke({"domanda": user_question, "risultati": results_text, "history": "".join(conversation_history)}).content.strip()
     log_model_call(resp, model_name, "analytical", user_question, prompt_text)
     return resp
 
@@ -223,7 +296,7 @@ conn = mysql.connector.connect(
 cursor = conn.cursor()
 
 conversation_history = []
-attiva_history = False
+attiva_history = True
 
 if __name__ == "__main__":
     handle_conversation()
