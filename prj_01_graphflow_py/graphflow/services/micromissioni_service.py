@@ -1,6 +1,5 @@
-from repository.micromissioni_dao import MicroMissioniDAO
 from sqlalchemy.orm import Session
-from model.micromissioni import MicroMissioni
+from repository.micromissioni_dao import MicroMissioniDAO
 from util.csv_utils import mappa_e_prepara_records
 
 MAPPING_COLONNE_MICROMISSIONI = {
@@ -31,7 +30,6 @@ MAPPING_COLONNE_MICROMISSIONI = {
     "LU_Weight": "Peso_UDC"
 }
 
-
 class MicroMissioniService:
     def __init__(self, db: Session):
         self.dao = MicroMissioniDAO(db)
@@ -48,10 +46,18 @@ class MicroMissioniService:
     def carica_micromissioni(self, commessa_id: int, df):
 
         print("Inizio replace \\ ")
-        df.columns = [col.replace("\\", "_").replace(" ", "_").strip() for col in df.columns]
+        df.columns = [
+            col.replace("\\", "_").replace(" ", "_").strip()
+            for col in df.columns
+        ]
         print("Fine replace \\ e Inizio mappatura ")
 
-        records = mappa_e_prepara_records(df, MAPPING_COLONNE_MICROMISSIONI, commessa_id, col_data_commessa="ID_Commessa")
+        records = mappa_e_prepara_records(
+            df, 
+            MAPPING_COLONNE_MICROMISSIONI,
+            commessa_id, 
+            col_data_commessa="ID_Commessa"
+        )
+
         print("Fine mappatura e Inizio bulk_create")
-        
         self.dao.bulk_create(records)

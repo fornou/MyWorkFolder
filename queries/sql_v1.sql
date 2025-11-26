@@ -1,4 +1,4 @@
-AllarmiDROP TABLE Commesse;
+DROP TABLE Commesse;
 
 
 -- Creazione Tabella Commesse

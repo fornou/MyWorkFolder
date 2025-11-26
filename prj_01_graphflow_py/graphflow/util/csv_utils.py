@@ -37,4 +37,10 @@ def carica_e_filtra_csv_micromissioni(filepath):
 
 def carica_e_filtra_csv_allarmi(filepath):
     df = pd.read_csv(filepath, sep=';')
+    mapping = {
+        'DB106%': 'Alarm',
+        'DB116%': 'Warning',
+        'DB126%': 'Silent Warning'
+    }
+    df['Type'] = df['Code'].map(mapping)
     return converti_date(df, ['Date time'])

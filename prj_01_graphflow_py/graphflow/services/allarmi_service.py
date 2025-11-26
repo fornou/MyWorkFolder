@@ -1,5 +1,5 @@
-from repository.allarmi_dao import AllarmiDAO
 from sqlalchemy.orm import Session
+from repository.allarmi_dao import AllarmiDAO
 from util.csv_utils import mappa_e_prepara_records
 
 MAPPING_COLONNE_ALLARMI = {
@@ -27,7 +27,10 @@ class AllarmiService:
 
     def carica_allarmi(self, commessa_id: int, df):
         print("Inizio replace \\ ")
-        df.columns = [col.replace("\\", "_").replace(" ", "_").strip() for col in df.columns]
+        df.columns = [
+            col.replace("\\", "_").replace(" ", "_").strip()
+            for col in df.columns
+        ]
         print("Fine replace \\ e Inizio assegnazione tipo")
 
         def assegna_tipo(codice):
@@ -40,12 +43,16 @@ class AllarmiService:
             else:
                 return "Sconosciuto"
 
-        # Crea la colonna 'Type' se non esiste, o sovrascrivila
         df["Type"] = df["Code"].fillna("").apply(assegna_tipo)
 
         print("Fine assegnazione tipo e Inizio mappatura")
 
-        records = mappa_e_prepara_records(df, MAPPING_COLONNE_ALLARMI, commessa_id, col_data_commessa="ID_Commessa")
-        print("Fine mappatura e Inizio bulk_create")
-        
+        records = mappa_e_prepara_records(
+            df,
+            MAPPING_COLONNE_ALLARMI, 
+            commessa_id, 
+            col_data_commessa="ID_Commessa"
+        )
+
+        print("Fine mappatura e Inizio bulk_create")        
         self.dao.bulk_create(records)
