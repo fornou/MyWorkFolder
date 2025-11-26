@@ -1,0 +1,67 @@
+codice_py 
+ ┣ 📂controller
+ ┃ ┣ 📜auth_controller.py
+ ┃ ┣ 📜commessa_controller.py
+ ┃ ┣ 📜mvc.py
+ ┃ ┗ 📜utente_controller.py
+ ┣ 📂database
+ ┃ ┣ 📜database.py
+ ┃ ┗ 📜settings.py
+ ┣ 📂dist
+ ┃ ┣ 📜start_server.exe
+ ┃ ┣ 📜start_server.py
+ ┃ ┗ 📜start_server_old.exe
+ ┣ 📂model
+ ┃ ┣ 📜allarmi.py
+ ┃ ┣ 📜commessa.py
+ ┃ ┣ 📜micromissioni.py
+ ┃ ┣ 📜token.py
+ ┃ ┣ 📜utente.py
+ ┃ ┗ 📜__init__.py
+ ┣ 📂repository
+ ┃ ┣ 📜allarmi_dao.py
+ ┃ ┣ 📜commessa_dao.py
+ ┃ ┣ 📜micromissioni_dao.py
+ ┃ ┣ 📜token_dao.py
+ ┃ ┗ 📜utente_dao.py
+ ┣ 📂resources
+ ┃ ┗ 📂static
+ ┃ ┃ ┣ 📂img
+ ┃ ┃ ┃ ┣ 📜commesse.jpg
+ ┃ ┃ ┣ 📂scripts
+ ┃ ┃ ┃ ┣ 📜auth.js
+ ┃ ┃ ┃ ┣ 📜commesse.js
+ ┃ ┃ ┃ ┗ 📜csv.js
+ ┃ ┃ ┣ 📂styles
+ ┃ ┃ ┃ ┗ 📜uploadPage.css
+ ┃ ┃ ┣ 📜401.html
+ ┃ ┃ ┣ 📜404.html
+ ┃ ┃ ┣ 📜commessa.html
+ ┃ ┃ ┣ 📜commesse_all.html
+ ┃ ┃ ┣ 📜form_commessa.html
+ ┃ ┃ ┣ 📜form_formatter_importer_csv.html
+ ┃ ┃ ┣ 📜login.html
+ ┃ ┃ ┗ 📜signup.html
+ ┣ 📂schemas
+ ┃ ┗ 📜auth.py
+ ┣ 📂security
+ ┃ ┗ 📜security.py
+ ┣ 📂services
+ ┃ ┣ 📜allarmi_service.py
+ ┃ ┣ 📜auth_service.py
+ ┃ ┣ 📜commessa_service.py
+ ┃ ┣ 📜jwt_service.py
+ ┃ ┣ 📜micromissioni_service.py
+ ┃ ┣ 📜token_service.py
+ ┃ ┗ 📜utente_service.py
+ ┣ 📂test
+ ┃ ┣ 📜formattatore_csv.py
+ ┃ ┣ 📜formatta_allarmi.py
+ ┃ ┣ 📜prova.py
+ ┃ ┗ 📜test_classe_formattatore_csv.py
+ ┣ 📂util
+ ┃ ┣ 📜csv_utils.py
+ ┃ ┗ 📜formattatore_csv.py
+ ┣ 📜.env
+ ┣ 📜app.py
+ ┗ 📜requirements.txt
